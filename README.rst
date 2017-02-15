@@ -3,7 +3,7 @@
    This text does not appear on pypi or github. It is a comment.
 
 ==============================================================================
-urban.vocabularies
+urban.vocabulary
 ==============================================================================
 
 Tell me what your product does
@@ -38,14 +38,14 @@ This product has been translated into
 Installation
 ------------
 
-Install urban.vocabularies by adding it to your buildout::
+Install urban.vocabulary by adding it to your buildout::
 
     [buildout]
 
     ...
 
     eggs =
-        urban.vocabularies
+        urban.vocabulary
 
 
 and then running ``bin/buildout``
@@ -54,8 +54,8 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/urban.vocabularies/issues
-- Source Code: https://github.com/collective/urban.vocabularies
+- Issue Tracker: https://github.com/collective/urban.vocabulary/issues
+- Source Code: https://github.com/collective/urban.vocabulary
 - Documentation: https://docs.plone.org/foo/bar
 
 

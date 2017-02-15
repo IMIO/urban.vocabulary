@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the urban.vocabularies package."""
+"""Installer for the urban.vocabulary package."""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -13,9 +13,9 @@ long_description = '\n\n'.join([
 
 
 setup(
-    name='urban.vocabularies',
+    name='urban.vocabulary',
     version='1.0a1',
-    description="Urban vocabularies",
+    description="Urban vocabulary",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -30,7 +30,7 @@ setup(
     keywords='Python Plone',
     author='Martin Peeters',
     author_email='martin.peeters@affinitic.be',
-    url='https://pypi.python.org/pypi/urban.vocabularies',
+    url='https://pypi.python.org/pypi/urban.vocabulary',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
     namespace_packages=['urban'],

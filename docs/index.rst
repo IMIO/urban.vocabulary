@@ -1,5 +1,5 @@
 ====================
-urban.vocabularies
+urban.vocabulary
 ====================
 
 User documentation
