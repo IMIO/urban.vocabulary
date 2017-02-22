@@ -39,8 +39,11 @@ setup(
     zip_safe=False,
     install_requires=[
         'plone.api',
+        'requests',
         'setuptools',
         'z3c.jbot',
+        'collective.z3cform.select2',
+        'plone.app.async',
     ],
     extras_require={
         'test': [

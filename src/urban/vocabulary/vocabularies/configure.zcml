@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="urban.vocabulary">
+
+  <utility
+    name="urban.vocabulary.PCAZones"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".pcazones.PCAZonesVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.PCAZonesBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".pcazones.PCAZonesBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.Natura2000"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".natura2000.Natura2000Vocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.Natura2000Boolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".natura2000.Natura2000BooleanVocabulary"
+    />
+
+
+</configure>
