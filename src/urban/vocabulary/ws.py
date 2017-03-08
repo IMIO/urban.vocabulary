@@ -8,13 +8,18 @@ Created by mpeeters
 """
 
 from plone import api
+from plone.memoize import ram
+from time import time
 from zope.component import getUtility
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 import requests
 
-from urban.vocabulary.interfaces import ISettings
-from urban.vocabulary.interfaces import IVocabularies
+from urban.vocabulary import utils
+
+
+def _call_ws_cachekey(method, self):
+    return (getattr(self, 'ws_url'), time() // (60 * 5))
 
 
 class UrbanWebservice(object):
@@ -23,10 +28,12 @@ class UrbanWebservice(object):
         self.registry_key = registry_key
 
     def get_registry_value(self, key):
-        return api.portal.get_registry_record(
-            name='{0}_{1}'.format(self.registry_key, key),
-            interface=ISettings,
+        key = '{0}.{1}_{2}'.format(
+            'urban.vocabulary.interfaces.ISettings',
+            self.registry_key,
+            key,
         )
+        return api.portal.get_registry_record(key, default=None)
 
     @property
     def ws_url(self):
@@ -35,12 +42,15 @@ class UrbanWebservice(object):
     @property
     def mapping(self):
         return {
-            'title': self.get_registry_value('title_attribute'),
-            'token': self.get_registry_value('token_attribute'),
+            'title': utils.to_int(self.get_registry_value('title_attribute')),
+            'token': utils.to_int(self.get_registry_value('token_attribute')),
         }
 
+    @ram.cache(_call_ws_cachekey)
     def _call_ws(self):
         """Call and return the response from the webservice"""
+        if not self.ws_url:
+            return
         r = requests.get(self.ws_url)
         if r.status_code == 200:
             return r.json()
@@ -53,23 +63,26 @@ class UrbanWebservice(object):
         result = map(convert_value, json['result']['features'])
         mapping = self.mapping
         normalizer = getUtility(IIDNormalizer)
-        if not isinstance(result, dict):
-            mapping = {k: int(v) for k, v in self.mapping.items()}
         return [[unicode(normalizer.normalize(e[mapping['token']])),
-                 e[mapping['title']],
+                 utils.to_str(e[mapping['title']]),
                  u'1']
-                for e in result if e]
+                for e in result
+                if e[mapping['title']] and e[mapping['token']]]
 
     def store_values(self):
         """Store the webservice result into the registry"""
         json_result = self._call_ws()
         if not json_result:
             return False
-        api.portal.set_registry_record(
-            name='{0}_cached'.format(self.registry_key),
-            value=self._map_result(json_result),
-            interface=IVocabularies,
+        try:
+            values = self._map_result(json_result)
+        except KeyError:
+            return False
+        key = '{0}.{1}_cached'.format(
+            'urban.vocabulary.interfaces.IVocabularies',
+            self.registry_key,
         )
+        api.portal.set_registry_record(key, values)
         return True
 
 

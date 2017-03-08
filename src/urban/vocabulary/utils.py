@@ -31,3 +31,19 @@ def extend_vocabulary(voc, items):
         voc.by_token[value] = term
         voc.by_value[value] = term
     return voc
+
+
+def to_int(str):
+    """Convert a string to an integer if that is possible"""
+    try:
+        return int(str)
+    except ValueError:
+        return str
+
+
+def to_str(str):
+    """Convert a string to zope schema TextLine value"""
+    invalid_chars = ('\n', '\r')
+    for char in invalid_chars:
+        str = str.replace(char, '')
+    return str
