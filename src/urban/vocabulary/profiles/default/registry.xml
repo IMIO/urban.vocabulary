@@ -11,9 +11,40 @@
     <value key="natura_2000_token_attribute">CODE_SITE</value>
     <value key="natura_2000_boolean_mapping"></value>
     <value key="natura_2000_boolean_mapping_value"></value>
+    <value key="reparcelling_url">https://geonode-staging.imio.be/survey/survey_value_list?l=9&amp;att=NOMCHAN,ID_PERIM</value>
+    <value key="reparcelling_title_attribute">NOMCHAN</value>
+    <value key="reparcelling_token_attribute">ID_PERIM</value>
+    <value key="reparcelling_boolean_mapping"></value>
+    <value key="reparcelling_boolean_mapping_value"></value>
+    <value key="parcellings_url">https://geonode-staging.imio.be/survey/survey_value_list?l=8&amp;att=CODE_ADMIN,CODEUNIQUE</value>
+    <value key="parcellings_title_attribute">CODE_ADMIN</value>
+    <value key="parcellings_token_attribute">CODEUNIQUE</value>
+    <value key="parcellings_boolean_mapping"></value>
+    <value key="parcellings_boolean_mapping_value"></value>
+    <value key="protected_building_url">
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=12&amp;att=LIBELLE,CODECARTO</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=16&amp;att=LIBELLE,CODECARTO</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=18&amp;att=LIBELLE,CODECARTO</element>
+    </value>
+    <value key="protected_building_title_attribute">LIBELLE</value>
+    <value key="protected_building_token_attribute">CODECARTO</value>
+    <value key="protected_building_boolean_mapping"></value>
+    <value key="protected_building_boolean_mapping_value"></value>
+    <value key="noteworthy_trees_url">
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=14&amp;att=SPFR,SITEAR</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=15&amp;att=SPFR,SITEAR</element>
+    </value>
+    <value key="noteworthy_trees_title_attribute">SPFR</value>
+    <value key="noteworthy_trees_token_attribute">SITEAR</value>
+    <value key="noteworthy_trees_boolean_mapping"></value>
+    <value key="noteworthy_trees_boolean_mapping_value"></value>
   </records>
   <records interface="urban.vocabulary.interfaces.IVocabularies" purge="False">
     <value key="pca_cached"></value>
     <value key="natura_2000_cached"></value>
+    <value key="reparcelling_cached"></value>
+    <value key="parcellings_cached"></value>
+    <value key="protected_building_cached"></value>
+    <value key="noteworthy_trees_cached"></value>
   </records>
 </registry>

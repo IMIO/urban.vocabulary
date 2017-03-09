@@ -27,5 +27,52 @@
     factory=".natura2000.Natura2000BooleanVocabulary"
     />
 
+  <utility
+    name="urban.vocabulary.Reparcelling"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".reparcelling.ReparcellingVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.ReparcellingBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".reparcelling.ReparcellingBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.Parcellings"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".parcellings.ParcellingsVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.ParcellingsBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".parcellings.ParcellingsBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.ProtectedBuilding"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".protectedbuilding.ProtectedBuildingVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.ProtectedBuildingBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".protectedbuilding.ProtectedBuildingBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.NoteworthyTrees"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".noteworthytrees.NoteworthyTreesVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.NoteworthyTreesBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".noteworthytrees.NoteworthyTreesBooleanVocabulary"
+    />
 
 </configure>
