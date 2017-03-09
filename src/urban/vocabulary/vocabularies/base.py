@@ -28,16 +28,22 @@ class BaseVocabulary(object):
     _expire_delay = 3600  # in seconds
 
     def __call__(self, context):
-        vocabulary = self._vocabulary_from_urban_vocabulary(
-            self._get_config_vocabulary(),
-            context,
-        )
+        vocabulary = self._get_base_vocabulary(context)
         if self.registry_key:
             vocabulary = utils.extend_vocabulary(
                 vocabulary,
                 self._get_registry_items(context),
             )
         return vocabulary
+
+    def _get_base_vocabulary(self, context):
+        urban_vocabulary = self._get_config_vocabulary()
+        if not urban_vocabulary:
+            return utils.vocabulary_from_items([])
+        return self._vocabulary_from_urban_vocabulary(
+            urban_vocabulary,
+            context,
+        )
 
     @classmethod
     def _get_config_vocabulary(cls):
