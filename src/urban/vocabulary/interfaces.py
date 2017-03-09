@@ -305,12 +305,108 @@ class INoteworthyTreesSettings(model.Schema):
     )
 
 
+class ITownPlanningEnvironmentReportsSettings(model.Schema):
+
+    model.fieldset(
+        'town_planning_environment_reports',
+        label=_('TownPlanningEnvironmentReports Vocabulary'),
+        fields=[
+            'town_planning_environment_reports_url',
+            'town_planning_environment_reports_title_attribute',
+            'town_planning_environment_reports_token_attribute',
+            'town_planning_environment_reports_boolean_mapping',
+            'town_planning_environment_reports_boolean_mapping_value',
+        ],
+    )
+
+    town_planning_environment_reports_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    town_planning_environment_reports_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    town_planning_environment_reports_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(town_planning_environment_reports_boolean_mapping=MultiSelect2FieldWidget)
+    town_planning_environment_reports_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.TownPlanningEnvironmentReports',
+        ),
+        required=False,
+    )
+
+    town_planning_environment_reports_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class IRedesignSitesSettings(model.Schema):
+
+    model.fieldset(
+        'redesign_sites',
+        label=_('RedesignSites Vocabulary'),
+        fields=[
+            'redesign_sites_url',
+            'redesign_sites_title_attribute',
+            'redesign_sites_token_attribute',
+            'redesign_sites_boolean_mapping',
+            'redesign_sites_boolean_mapping_value',
+        ],
+    )
+
+    redesign_sites_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    redesign_sites_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    redesign_sites_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(redesign_sites_boolean_mapping=MultiSelect2FieldWidget)
+    redesign_sites_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.RedesignSites',
+        ),
+        required=False,
+    )
+
+    redesign_sites_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
 class ISettings(IPCASettings,
                 INatura2000Settings,
                 IReparcellingSettings,
                 IParcellingsSettings,
                 IProtectedBuildingSettings,
-                INoteworthyTreesSettings):
+                INoteworthyTreesSettings,
+                ITownPlanningEnvironmentReportsSettings,
+                IRedesignSitesSettings):
     pass
 
 
@@ -368,6 +464,26 @@ class IVocabularies(Interface):
 
     noteworthy_trees_cached = schema.List(
         title=_(u'PCA cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    town_planning_environment_reports_cached = schema.List(
+        title=_(u'TownPlanningEnvironmentReports cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    redesign_sites_cached = schema.List(
+        title=_(u'RedesignSites cached value'),
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),

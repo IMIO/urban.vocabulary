@@ -75,4 +75,28 @@
     factory=".noteworthytrees.NoteworthyTreesBooleanVocabulary"
     />
 
+  <utility
+    name="urban.vocabulary.TownPlanningEnvironmentReports"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".townplanningenvironmentreports.TownPlanningEnvironmentReportsVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.TownPlanningEnvironmentReportsBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".townplanningenvironmentreports.TownPlanningEnvironmentReportsBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.RedesignSites"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".redesignsites.RedesignSitesVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.RedesignSitesBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".redesignsites.RedesignSitesBooleanVocabulary"
+    />
+
 </configure>
