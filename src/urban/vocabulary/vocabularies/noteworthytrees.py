@@ -12,9 +12,9 @@ from urban.vocabulary.vocabularies.base import BaseBooleanVocabulary
 
 
 class NoteworthyTreesVocabulary(BaseVocabulary):
-    config_vocabulary_path = u'noteworthy_trees'
+    config_vocabulary_path = u'noteworthytrees'
     config_vocabulary_options = {
-        'inUrbanConfig': False,
+        'inUrbanConfig': True,
     }
     registry_key = 'noteworthy_trees'
 

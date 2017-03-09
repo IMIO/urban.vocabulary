@@ -12,10 +12,8 @@ from urban.vocabulary.vocabularies.base import BaseBooleanVocabulary
 
 
 class ParcellingsVocabulary(BaseVocabulary):
-    config_vocabulary_path = u'parcellings'
-    config_vocabulary_options = {
-        'inUrbanConfig': False,
-    }
+    config_vocabulary_path = None
+    config_vocabulary_options = {}
     registry_key = 'parcellings'
 
 
