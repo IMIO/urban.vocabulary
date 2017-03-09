@@ -21,7 +21,7 @@ class IUrbanVocabularyLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
 
-class ISettings(model.Schema):
+class IPCASettings(model.Schema):
 
     model.fieldset(
         'pca',
@@ -66,6 +66,9 @@ class ISettings(model.Schema):
         required=True,
         default=True,
     )
+
+
+class INatura2000Settings(model.Schema):
 
     model.fieldset(
         'natura_2000',
@@ -112,6 +115,11 @@ class ISettings(model.Schema):
     )
 
 
+class ISettings(IPCASettings,
+                INatura2000Settings):
+    pass
+
+
 class IVocabularies(Interface):
 
     pca_cached = schema.List(
@@ -119,6 +127,7 @@ class IVocabularies(Interface):
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),
+            required=False,
         ),
         required=False,
     )
@@ -128,6 +137,7 @@ class IVocabularies(Interface):
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),
+            required=False,
         ),
         required=False,
     )

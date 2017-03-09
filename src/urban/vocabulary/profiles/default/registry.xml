@@ -1,31 +1,19 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="urban.vocabulary.interfaces.ISettings" purge="False">
-    <value key="pca_url"></value>
-    <value key="pca_title_attribute"></value>
-    <value key="pca_token_attribute"></value>
+    <value key="pca_url">https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=LIBELLE,CODECARTO</value>
+    <value key="pca_title_attribute">LIBELLE</value>
+    <value key="pca_token_attribute">CODECARTO</value>
     <value key="pca_boolean_mapping"></value>
     <value key="pca_boolean_mapping_value"></value>
-    <value key="natura_2000_url"></value>
-    <value key="natura_2000_title_attribute"></value>
-    <value key="natura_2000_token_attribute"></value>
+    <value key="natura_2000_url">https://geonode-staging.imio.be/survey/survey_value_list?l=2&amp;att=NOM,CODE_SITE</value>
+    <value key="natura_2000_title_attribute">NOM</value>
+    <value key="natura_2000_token_attribute">CODE_SITE</value>
     <value key="natura_2000_boolean_mapping"></value>
     <value key="natura_2000_boolean_mapping_value"></value>
   </records>
   <records interface="urban.vocabulary.interfaces.IVocabularies" purge="False">
-    <value key="pca_cached">
-      <element>
-        <element>key</element>
-        <element>value</element>
-        <element>1</element>
-      </element>
-    </value>
-    <value key="natura_2000_cached">
-      <element>
-        <element>key</element>
-        <element>value</element>
-        <element>1</element>
-      </element>
-    </value>
+    <value key="pca_cached"></value>
+    <value key="natura_2000_cached"></value>
   </records>
 </registry>
