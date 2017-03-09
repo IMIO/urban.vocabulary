@@ -27,17 +27,20 @@ class UrbanWebservice(object):
     def __init__(self, registry_key):
         self.registry_key = registry_key
 
-    def get_registry_value(self, key):
+    def get_registry_value(self, key, default=None):
         key = '{0}.{1}_{2}'.format(
             'urban.vocabulary.interfaces.ISettings',
             self.registry_key,
             key,
         )
-        return api.portal.get_registry_record(key, default=None)
+        return api.portal.get_registry_record(key, default=default)
 
     @property
     def ws_url(self):
-        return self.get_registry_value('url')
+        url = self.get_registry_value('url', default=[])
+        if isinstance(url, basestring):
+            return [url]
+        return url
 
     @property
     def mapping(self):
@@ -51,9 +54,13 @@ class UrbanWebservice(object):
         """Call and return the response from the webservice"""
         if not self.ws_url:
             return
-        r = requests.get(self.ws_url)
-        if r.status_code == 200:
-            return r.json()
+        result = []
+        for url in self.ws_url:
+            r = requests.get(url)
+            if r.status_code != 200:
+                return
+            result.append(r.json())
+        return result
 
     def _map_result(self, json):
         """
@@ -75,11 +82,13 @@ class UrbanWebservice(object):
 
     def store_values(self):
         """Store the webservice result into the registry"""
-        json_result = self._call_ws()
-        if not json_result:
+        json_results = self._call_ws()
+        values = []
+        if not json_results:
             return False
         try:
-            values = self._map_result(json_result)
+            for json in json_results:
+                values.extend(self._map_result(json))
         except KeyError:
             return False
         key = '{0}.{1}_cached'.format(
