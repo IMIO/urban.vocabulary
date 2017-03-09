@@ -64,10 +64,14 @@ class UrbanWebservice(object):
         mapping = self.mapping
         normalizer = getUtility(IIDNormalizer)
         return [[unicode(normalizer.normalize(e[mapping['token']])),
-                 utils.to_str(e[mapping['title']]),
+                 self._format_title(e[mapping['title']]),
                  u'1']
                 for e in result
                 if e[mapping['title']] and e[mapping['token']]]
+
+    @staticmethod
+    def _format_title(value):
+        return utils.to_str(value).strip()
 
     def store_values(self):
         """Store the webservice result into the registry"""
