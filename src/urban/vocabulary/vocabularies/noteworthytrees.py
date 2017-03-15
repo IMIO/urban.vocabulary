@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 urban.vocabulary
-------------------
+----------------
 
 Created by mpeeters
 :license: GPL, see LICENCE.txt for more details.

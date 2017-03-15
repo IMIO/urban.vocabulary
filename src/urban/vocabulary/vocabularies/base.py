@@ -13,6 +13,9 @@ from plone import api
 from time import time
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
+from plone.registry.interfaces import IRecordsProxy
+
+import copy
 
 from urban.vocabulary import utils
 from urban.vocabulary.interfaces import ISettings
@@ -37,23 +40,44 @@ class BaseVocabulary(object):
         return vocabulary
 
     def _get_base_vocabulary(self, context):
-        urban_vocabulary = self._get_config_vocabulary()
-        if not urban_vocabulary:
-            return utils.vocabulary_from_items([])
+        urban_vocabulary_values = self._get_config_vocabulary_values(context)
         return self._vocabulary_from_urban_vocabulary(
-            urban_vocabulary,
+            urban_vocabulary_values,
             context,
         )
 
+    @staticmethod
+    def get_licence_config_ids():
+        return [b.id for b in api.content.find(portal_type='LicenceConfig')]
+
     @classmethod
-    def _get_config_vocabulary(cls):
-        """Return the vocabulary created from urban config"""
+    def _get_config_vocabulary_values(cls, context):
+        """Return the vocabulary values created from urban config"""
         if not cls.config_vocabulary_path:
-            return
-        return UrbanVocabulary(
-            cls.config_vocabulary_path,
-            **cls.config_vocabulary_options
+            return []
+        options = copy.deepcopy(cls.config_vocabulary_options)
+        in_urban_config = cls.config_vocabulary_options.get(
+            'inUrbanConfig',
+            False,
         )
+        values = []
+        vocabularies = []
+        if IRecordsProxy.providedBy(context) and in_urban_config:
+            options['inUrbanConfig'] = False
+            for licence_id in cls.get_licence_config_ids():
+                vocabularies.append(UrbanVocabulary(
+                    '{0}/{1}'.format(licence_id, cls.config_vocabulary_path),
+                    **options
+                ))
+        else:
+            vocabularies.append(UrbanVocabulary(
+                cls.config_vocabulary_path,
+                **cls.config_vocabulary_options
+            ))
+
+        for voc in vocabularies:
+            values.extend(voc.getAllVocTerms(context).values())
+        return values
 
     def _get_registry_items(self, context):
         key = '{0}.{1}_cached'.format(
@@ -64,10 +88,9 @@ class BaseVocabulary(object):
         self._refresh_registry()
         return [(e[0], e[1]) for e in record]
 
-    def _vocabulary_from_urban_vocabulary(self, urban_vocabulary, context):
+    def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
-        items = [(t.id, t.title) for t in
-                 urban_vocabulary.getAllVocTerms(context).values()]
+        items = set([(t.id, t.title) for t in urban_values])
         return utils.vocabulary_from_items(items)
 
     @classmethod
