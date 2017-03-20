@@ -7,7 +7,7 @@ Created by mpeeters
 :license: GPL, see LICENCE.txt for more details.
 """
 
-from Products.urban.UrbanVocabularyTerm import UrbanVocabulary
+from Products.urban import UrbanVocabularyTerm
 from datetime import datetime
 from plone import api
 from plone.app.async.interfaces import IAsyncService
@@ -65,12 +65,12 @@ class BaseVocabulary(object):
         if utils.is_registry_context(context) and in_urban_config:
             options['inUrbanConfig'] = False
             for licence_id in cls.get_licence_config_ids():
-                vocabularies.append(UrbanVocabulary(
+                vocabularies.append(UrbanVocabularyTerm.UrbanVocabulary(
                     '{0}/{1}'.format(licence_id, cls.config_vocabulary_path),
                     **options
                 ))
         else:
-            vocabularies.append(UrbanVocabulary(
+            vocabularies.append(UrbanVocabularyTerm.UrbanVocabulary(
                 cls.config_vocabulary_path,
                 **cls.config_vocabulary_options
             ))

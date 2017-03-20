@@ -38,18 +38,19 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'Products.urban',
+        'collective.z3cform.select2',
         'plone.api',
+        'plone.app.async',
         'requests',
         'setuptools',
         'z3c.jbot',
-        'collective.z3cform.select2',
-        'plone.app.async',
     ],
     extras_require={
         'test': [
             'plone.app.testing',
-            'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
+            'mock',
         ],
     },
     entry_points="""
