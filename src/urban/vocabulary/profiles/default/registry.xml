@@ -50,13 +50,13 @@
     <value key="redesign_sites_boolean_mapping_value"></value>
   </records>
   <records interface="urban.vocabulary.interfaces.IVocabularies" purge="False">
-    <value key="pca_cached"></value>
-    <value key="natura_2000_cached"></value>
-    <value key="reparcelling_cached"></value>
-    <value key="parcellings_cached"></value>
-    <value key="protected_building_cached"></value>
-    <value key="noteworthy_trees_cached"></value>
-    <value key="town_planning_environment_reports_cached"></value>
-    <value key="redesign_sites_cached"></value>
+    <value key="pca_cached"><element></element></value>
+    <value key="natura_2000_cached"><element></element></value>
+    <value key="reparcelling_cached"><element></element></value>
+    <value key="parcellings_cached"><element></element></value>
+    <value key="protected_building_cached"><element></element></value>
+    <value key="noteworthy_trees_cached"><element></element></value>
+    <value key="town_planning_environment_reports_cached"><element></element></value>
+    <value key="redesign_sites_cached"><element></element></value>
   </records>
 </registry>

@@ -10,9 +10,10 @@ Created by mpeeters
 from Products.urban.UrbanVocabularyTerm import UrbanVocabulary
 from datetime import datetime
 from plone import api
-from time import time
 from plone.app.async.interfaces import IAsyncService
+from time import time
 from zope.component import getUtility
+from zope.component.interfaces import ComponentLookupError
 
 import copy
 
@@ -83,9 +84,10 @@ class BaseVocabulary(object):
             self._registry_interface,
             self.registry_key,
         )
-        record = api.portal.get_registry_record(key, default=[])
-        self._refresh_registry()
-        return [(e[0], e[1]) for e in record]
+        record = api.portal.get_registry_record(key, default=None)
+        if record is not None:
+            self._refresh_registry()
+        return [(e[0], e[1]) for e in record and record or []]
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
@@ -174,5 +176,7 @@ def get_async():
             if msg_duration.total_seconds() > 60:
                 return
     except KeyError:  # No worker declared
+        return
+    except ComponentLookupError:  # Missing configuration in instance
         return
     return async
