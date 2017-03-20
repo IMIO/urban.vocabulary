@@ -7,6 +7,8 @@ Created by mpeeters
 :license: GPL, see LICENCE.txt for more details.
 """
 
+from plone.registry.interfaces import IRecord
+from plone.registry.interfaces import IRecordsProxy
 from zope.schema.vocabulary import SimpleVocabulary
 
 
@@ -47,3 +49,10 @@ def to_str(str):
     for char in invalid_chars:
         str = str.replace(char, '')
     return str
+
+
+def is_registry_context(context):
+    """Verify if the given context match a registry record"""
+    if IRecordsProxy.providedBy(context) or IRecord.providedBy(context):
+        return True
+    return False

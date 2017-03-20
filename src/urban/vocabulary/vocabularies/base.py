@@ -13,7 +13,6 @@ from plone import api
 from time import time
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
-from plone.registry.interfaces import IRecordsProxy
 
 import copy
 
@@ -62,7 +61,7 @@ class BaseVocabulary(object):
         )
         values = []
         vocabularies = []
-        if IRecordsProxy.providedBy(context) and in_urban_config:
+        if utils.is_registry_context(context) and in_urban_config:
             options['inUrbanConfig'] = False
             for licence_id in cls.get_licence_config_ids():
                 vocabularies.append(UrbanVocabulary(
