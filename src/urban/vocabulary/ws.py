@@ -59,7 +59,10 @@ class UrbanWebservice(object):
             r = requests.get(url)
             if r.status_code != 200:
                 return
-            result.append(r.json())
+            json = r.json()
+            if json.get('success', True) is False:
+                return
+            result.append(json)
         return result
 
     def _map_result(self, json):
