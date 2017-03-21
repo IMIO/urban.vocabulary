@@ -30,8 +30,8 @@ def extend_vocabulary(voc, items):
             continue
         term = SimpleVocabulary.createTerm(value, value, title)
         voc._terms.append(term)
-        voc.by_token[value] = term
-        voc.by_value[value] = term
+        voc.by_token[term.token] = term
+        voc.by_value[term.value] = term
     return voc
 
 
