@@ -64,7 +64,7 @@ class IPCASettings(model.Schema):
         title=_(u'Boolean mapping value'),
         values=(True, False),
         required=True,
-        default=True,
+        default=False,
     )
 
 
