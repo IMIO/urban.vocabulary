@@ -12,6 +12,8 @@ from plone.memoize import ram
 from time import time
 from zope.component import getUtility
 from plone.i18n.normalizer.interfaces import IIDNormalizer
+from urlparse import urlparse
+from urlparse import parse_qs
 
 import requests
 
@@ -36,6 +38,11 @@ class UrbanWebservice(object):
         return api.portal.get_registry_record(key, default=default)
 
     @property
+    def polygon(self):
+        key = 'urban.vocabulary.interfaces.ISettings.polygon'
+        return api.portal.get_registry_record(key, default=None)
+
+    @property
     def ws_url(self):
         url = self.get_registry_value('url', default=[])
         if isinstance(url, basestring):
@@ -49,6 +56,13 @@ class UrbanWebservice(object):
             'token': utils.to_int(self.get_registry_value('token_attribute')),
         }
 
+    def _request_query(self, url):
+        parser = urlparse(url)
+        params = parse_qs(parser.query)
+        if self.polygon:
+            params['area'] = self.polygon
+        return parser._replace(query=None).geturl(), params
+
     @ram.cache(_call_ws_cachekey)
     def _call_ws(self):
         """Call and return the response from the webservice"""
@@ -56,7 +70,8 @@ class UrbanWebservice(object):
             return
         result = []
         for url in self.ws_url:
-            r = requests.get(url)
+            url, data = self._request_query(url)
+            r = requests.post(url, data=data)
             if r.status_code != 200:
                 return
             json = r.json()

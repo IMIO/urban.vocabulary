@@ -407,7 +407,11 @@ class ISettings(IPCASettings,
                 INoteworthyTreesSettings,
                 ITownPlanningEnvironmentReportsSettings,
                 IRedesignSitesSettings):
-    pass
+
+    polygon = schema.TextLine(
+        title=_(u'City polygon'),
+        required=True,
+    )
 
 
 class IVocabularies(Interface):
