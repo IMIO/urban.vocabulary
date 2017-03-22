@@ -87,7 +87,7 @@ class BaseVocabulary(object):
         record = api.portal.get_registry_record(key, default=None)
         if record is not None:
             self._refresh_registry()
-        return [(e[0], e[1]) for e in record and record or []]
+        return [(e[0], e[1]) for e in record and record or [] if e]
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
@@ -147,7 +147,7 @@ class BaseBooleanVocabulary(BaseVocabulary):
             '{0}_boolean_mapping'.format(self.registry_key),
             interface=ISettings,
             default=None,
-        )
+        ) or []
         mapping_value = api.portal.get_registry_record(
             '{0}_boolean_mapping_value'.format(self.registry_key),
             interface=ISettings,
