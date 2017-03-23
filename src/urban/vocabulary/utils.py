@@ -9,6 +9,7 @@ Created by mpeeters
 
 from plone.registry.interfaces import IRecord
 from plone.registry.interfaces import IRecordsProxy
+from time import time
 from zope.schema.vocabulary import SimpleVocabulary
 
 
@@ -56,3 +57,8 @@ def is_registry_context(context):
     if IRecordsProxy.providedBy(context) or IRecord.providedBy(context):
         return True
     return False
+
+
+def time_now():
+    """Return current time"""
+    return time()

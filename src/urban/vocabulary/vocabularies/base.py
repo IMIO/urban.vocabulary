@@ -11,15 +11,14 @@ from Products.urban import UrbanVocabularyTerm
 from datetime import datetime
 from plone import api
 from plone.app.async.interfaces import IAsyncService
-from time import time
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
 
 import copy
 
 from urban.vocabulary import utils
+from urban.vocabulary import ws
 from urban.vocabulary.interfaces import ISettings
-from urban.vocabulary.ws import UrbanWebservice
 
 
 class BaseVocabulary(object):
@@ -94,11 +93,6 @@ class BaseVocabulary(object):
         items = set([(t.id, t.title) for t in urban_values])
         return utils.vocabulary_from_items(items)
 
-    @classmethod
-    def urban_vocabulary(cls, context):
-        """Return an archetype vocabulary with the current vocabulary values"""
-        return cls._get_config_vocabulary()
-
     def _refresh_registry(self):
         """Refresh (if necessary) the values stored in the registry"""
         async = get_async()
@@ -115,7 +109,7 @@ class BaseVocabulary(object):
 
     @classmethod
     def set_delay_key(cls):
-        cls._delay_key = time() // cls._expire_delay
+        cls._delay_key = utils.time_now() // cls._expire_delay
 
     @classmethod
     def _get_delay_key(cls):
@@ -124,7 +118,8 @@ class BaseVocabulary(object):
     @classmethod
     def verify_delay(cls):
         """Verify if there is a delay and if it expired"""
-        return getattr(cls, '_delay_key', None) != time() // cls._expire_delay
+        time = utils.time_now()
+        return getattr(cls, '_delay_key', None) != time // cls._expire_delay
 
 
 class BaseBooleanVocabulary(BaseVocabulary):
@@ -158,8 +153,8 @@ class BaseBooleanVocabulary(BaseVocabulary):
 
 def refresh_registry(context, registry_key, cls):
     if cls.verify_delay() is True:
-        ws = UrbanWebservice(registry_key)
-        result = ws.store_values()
+        ws_instance = ws.UrbanWebservice(registry_key)
+        result = ws_instance.store_values()
         if result is True:
             cls.set_delay_key()
 
