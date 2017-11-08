@@ -130,11 +130,21 @@ class BaseBooleanVocabulary(BaseVocabulary):
 
     def _generate_vocabulary(self, base_vocabulary):
         keys, value = self.boolean_mapping
-        default_value = not value
-        return utils.vocabulary_from_items(
-            [(t.value, t.value in keys and value or default_value)
-             for t in base_vocabulary],
-        )
+        other_value = not value
+        if len(keys) == 0:
+            items = [(t.value, value) for t in base_vocabulary]
+        else:
+            items = [(t.value, t.value in keys and value or other_value)
+                     for t in base_vocabulary]
+        return utils.vocabulary_from_items(items)
+
+    def _get_settings_field(self, key):
+        """Return a field object from ISettings class"""
+        classes = ISettings.getBases() + (ISettings, )
+        for cls in classes:
+            if key in cls.names():
+                return cls.get(key)
+        raise KeyError("Missing key '{0}' in {1}".format(key, cls))
 
     @property
     def boolean_mapping(self):
@@ -143,11 +153,17 @@ class BaseBooleanVocabulary(BaseVocabulary):
             interface=ISettings,
             default=None,
         ) or []
+        key = '{0}_boolean_mapping_value'.format(self.registry_key)
+        field = self._get_settings_field(key)
         mapping_value = api.portal.get_registry_record(
-            '{0}_boolean_mapping_value'.format(self.registry_key),
+            key,
             interface=ISettings,
             default=None,
         )
+        if mapping_value is None:
+            mapping_value = field.default
+        if mapping_value is None:  # This should normally never happen
+            mapping_value = True
         return mapping_keys, mapping_value
 
 
