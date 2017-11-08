@@ -37,6 +37,10 @@ class TestVocabulary(base.BaseVocabulary):
     _expire_delay = 10000
 
 
+class TestBooleanVocabulary(TestVocabulary, base.BaseBooleanVocabulary):
+    pass
+
+
 class TestBaseVocabulary(unittest.TestCase):
     layer = testing.URBAN_VOCABULARY_INTEGRATION_TESTING
     _now = 1500000000
@@ -130,3 +134,56 @@ class TestBaseVocabulary(unittest.TestCase):
         ws.UrbanWebservice.store_values = Mock(return_value=True)
         base.refresh_registry(None, None, voc)
         self.assertTrue(voc.set_delay_key.called)
+
+
+class TestBaseBooleanVocabulary(unittest.TestCase):
+    layer = testing.URBAN_VOCABULARY_INTEGRATION_TESTING
+    _now = 1500000000
+
+    def setUp(self):
+        self._get_registry_record = api.portal.get_registry_record
+        api.portal.set_registry_record(
+            'urban.vocabulary.interfaces.IVocabularies.pca_cached',
+            [[u'key1', u'value1', u'1'], [u'key2', u'value2', u'1']],
+        )
+
+    def tearDown(self):
+        api.portal.get_registry_record = self._get_registry_record
+
+    def test_generate_vocabulary_with_default_value(self):
+        """
+        Test BaseBooleanVocabulary._generate_vocabulary method
+        when there is a default value
+        """
+        vocabulary = TestBooleanVocabulary()
+        base_vocabulary = utils.vocabulary_from_items([
+            ('value1', 'title1'),
+            ('value2', 'title2'),
+        ])
+        api.portal.get_registry_record = Mock(side_effect=(None, True))
+        voc = vocabulary._generate_vocabulary(base_vocabulary)
+        self.assertEqual(2, len(voc))
+        self.assertEqual(True, voc.getTermByToken('value1').title)
+        self.assertEqual(True, voc.getTermByToken('value2').title)
+
+        api.portal.get_registry_record = Mock(side_effect=(None, False))
+        voc = vocabulary._generate_vocabulary(base_vocabulary)
+        self.assertEqual(2, len(voc))
+        self.assertEqual(False, voc.getTermByToken('value1').title)
+        self.assertEqual(False, voc.getTermByToken('value2').title)
+
+    def test_generate_vocabulary_with_mapping(self):
+        """
+        Test BaseBooleanVocabulary._generate_vocabulary method
+        when there is mapping keys
+        """
+        vocabulary = TestBooleanVocabulary()
+        base_vocabulary = utils.vocabulary_from_items([
+            ('value1', 'title1'),
+            ('value2', 'title2'),
+        ])
+        api.portal.get_registry_record = Mock(side_effect=(['value1'], True))
+        voc = vocabulary._generate_vocabulary(base_vocabulary)
+        self.assertEqual(2, len(voc))
+        self.assertEqual(True, voc.getTermByToken('value1').title)
+        self.assertEqual(False, voc.getTermByToken('value2').title)
