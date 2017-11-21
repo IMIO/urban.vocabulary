@@ -12,6 +12,7 @@ from zope import schema
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.interface import Interface
 from plone.directives import form
+from z3c.form.browser.textarea import TextAreaFieldWidget
 from collective.z3cform.select2.widget.widget import MultiSelect2FieldWidget
 
 from urban.vocabulary import _
@@ -408,6 +409,7 @@ class ISettings(IPCASettings,
                 ITownPlanningEnvironmentReportsSettings,
                 IRedesignSitesSettings):
 
+    form.widget(polygon=TextAreaFieldWidget)
     polygon = schema.TextLine(
         title=_(u'City polygon'),
         required=True,
