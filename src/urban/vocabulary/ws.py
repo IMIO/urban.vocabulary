@@ -24,8 +24,8 @@ from urban.vocabulary import utils
 logger = logging.getLogger('urban.vocabulary')
 
 
-def _call_ws_cachekey(method, self):
-    return (getattr(self, 'ws_url'), time() // (60 * 5))
+def _call_ws_cachekey(method, self, force):
+    return (getattr(self, 'ws_url'), force, time() // (60 * 5))
 
 
 class UrbanWebservice(object):
@@ -70,7 +70,7 @@ class UrbanWebservice(object):
         return parser._replace(query=None).geturl(), params
 
     @ram.cache(_call_ws_cachekey)
-    def _call_ws(self):
+    def _call_ws(self, force=0):
         """Call and return the response from the webservice"""
         if not self.ws_url:
             return
@@ -104,9 +104,11 @@ class UrbanWebservice(object):
     def _format_title(value):
         return utils.to_str(value).strip()
 
-    def store_values(self):
+    def store_values(self, force=False):
         """Store the webservice result into the registry"""
-        json_results = self._call_ws()
+        if force is True:
+            force = time()
+        json_results = self._call_ws(force=force)
         values = []
         if not json_results:
             return False
