@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-29 14:11+0000\n"
+"POT-Creation-Date: 2017-11-29 15:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,15 +110,23 @@ msgstr ""
 msgid "URL(s)"
 msgstr ""
 
+#: ../browser/controlpanel.py:37
+msgid "Update vocabularies"
+msgstr "Mise à jour des vocabulaires"
+
 #: ../profiles/default/controlpanel.xml
 msgid "Urban Vocabulary"
 msgstr "Vocabulaire Urban"
 
-#: ../browser/controlpanel.py:18
+#: ../browser/controlpanel.py:22
 msgid "Urban Vocabulary Settings"
 msgstr "Configuration pour les vocabulaires d'Urban"
 
 #: ../interfaces.py:58
 msgid "Value"
 msgstr "Valeur"
+
+#: ../browser/controlpanel.py:51
+msgid "Vocabularies updated : {0}"
+msgstr "Vocabulaires mis à jours : {0}"
 
