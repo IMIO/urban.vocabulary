@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-03-09 17:25+0000\n"
+"POT-Creation-Date: 2017-11-29 14:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,87 +14,99 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../interfaces.py:64
+#: ../interfaces.py:65
 msgid "Boolean mapping value"
 msgstr ""
 
-#: ../interfaces.py:55
+#: ../interfaces.py:462
+msgid "City polygon"
+msgstr ""
+
+#: ../interfaces.py:56
 msgid "Mapping of vocabularies values to boolean"
 msgstr ""
 
-#: ../interfaces.py:75
+#: ../interfaces.py:76
 msgid "Natura 2000 Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:426
+#: ../interfaces.py:480
 msgid "Natura 2000 cached value"
 msgstr ""
 
-#: ../interfaces.py:264
+#: ../interfaces.py:265
 msgid "NoteworthyTrees Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:28
+#: ../interfaces.py:29
 msgid "PCA Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:416
+#: ../interfaces.py:470
 msgid "PCA cached value"
 msgstr ""
 
-#: ../interfaces.py:169
+#: ../interfaces.py:170
 msgid "Parcellings Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:446
+#: ../interfaces.py:500
 msgid "Parcellings cached value"
 msgstr ""
 
-#: ../interfaces.py:216
+#: ../interfaces.py:217
 msgid "ProtectedBuilding Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:456
+#: ../interfaces.py:510
 msgid "ProtectedBuilding cached value"
 msgstr ""
 
-#: ../interfaces.py:359
+#: ../interfaces.py:360
 msgid "RedesignSites Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:486
+#: ../interfaces.py:540
 msgid "RedesignSites cached value"
 msgstr ""
 
-#: ../interfaces.py:122
+#: ../interfaces.py:123
 msgid "Reparcelling Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:436
+#: ../interfaces.py:490
 msgid "Reparcelling cached value"
 msgstr ""
 
-#: ../interfaces.py:44
+#: ../interfaces.py:407
+msgid "SOL Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:550
+msgid "SOL cached value"
+msgstr ""
+
+#: ../interfaces.py:45
 msgid "Title attribute"
 msgstr ""
 
-#: ../interfaces.py:49
+#: ../interfaces.py:50
 msgid "Token attribute"
 msgstr ""
 
-#: ../interfaces.py:312
+#: ../interfaces.py:313
 msgid "TownPlanningEnvironmentReports Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:476
+#: ../interfaces.py:530
 msgid "TownPlanningEnvironmentReports cached value"
 msgstr ""
 
-#: ../interfaces.py:39
+#: ../interfaces.py:40
 msgid "URL"
 msgstr ""
 
-#: ../interfaces.py:227
+#: ../interfaces.py:228
 msgid "URL(s)"
 msgstr ""
 
@@ -106,7 +118,7 @@ msgstr ""
 msgid "Urban Vocabulary Settings"
 msgstr ""
 
-#: ../interfaces.py:57
+#: ../interfaces.py:58
 msgid "Value"
 msgstr ""
 
