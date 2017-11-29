@@ -99,4 +99,16 @@
     factory=".redesignsites.RedesignSitesBooleanVocabulary"
     />
 
+  <utility
+    name="urban.vocabulary.SOLZones"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".solzones.SOLZonesVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.SOLZonesBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".solzones.SOLZonesBooleanVocabulary"
+    />
+
 </configure>

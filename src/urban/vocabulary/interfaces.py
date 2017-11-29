@@ -400,6 +400,53 @@ class IRedesignSitesSettings(model.Schema):
     )
 
 
+class ISOLSettings(model.Schema):
+
+    model.fieldset(
+        'sol',
+        label=_('SOL Vocabulary'),
+        fields=[
+            'sol_url',
+            'sol_title_attribute',
+            'sol_token_attribute',
+            'sol_boolean_mapping',
+            'sol_boolean_mapping_value',
+        ],
+    )
+
+    sol_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    sol_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    sol_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(sol_boolean_mapping=MultiSelect2FieldWidget)
+    sol_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.SOLZones',
+        ),
+        required=False,
+    )
+
+    sol_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
 class ISettings(IPCASettings,
                 INatura2000Settings,
                 IReparcellingSettings,
@@ -407,7 +454,8 @@ class ISettings(IPCASettings,
                 IProtectedBuildingSettings,
                 INoteworthyTreesSettings,
                 ITownPlanningEnvironmentReportsSettings,
-                IRedesignSitesSettings):
+                IRedesignSitesSettings,
+                ISOLSettings):
 
     form.widget(polygon=TextAreaFieldWidget)
     polygon = schema.TextLine(
@@ -490,6 +538,16 @@ class IVocabularies(Interface):
 
     redesign_sites_cached = schema.List(
         title=_(u'RedesignSites cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    sol_cached = schema.List(
+        title=_(u'SOL cached value'),
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),
