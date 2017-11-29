@@ -15,9 +15,13 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 from urlparse import urlparse
 from urlparse import parse_qs
 
+import logging
 import requests
 
 from urban.vocabulary import utils
+
+
+logger = logging.getLogger('urban.vocabulary')
 
 
 def _call_ws_cachekey(method, self):
@@ -59,7 +63,9 @@ class UrbanWebservice(object):
     def _request_query(self, url):
         parser = urlparse(url)
         params = parse_qs(parser.query)
-        if self.polygon:
+        if not self.polygon:
+            logger.error('Missing polygon for ws queries')
+        else:
             params['area'] = self.polygon
         return parser._replace(query=None).geturl(), params
 
