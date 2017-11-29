@@ -16,91 +16,91 @@ msgstr ""
 
 #: ../interfaces.py:65
 msgid "Boolean mapping value"
-msgstr ""
+msgstr "Booléen pour la correspondance"
 
 #: ../interfaces.py:462
 msgid "City polygon"
-msgstr ""
+msgstr "Polygone de la ville"
 
 #: ../interfaces.py:56
 msgid "Mapping of vocabularies values to boolean"
-msgstr ""
+msgstr "Valeur correspondante pour le vocabulaire de booléen"
 
 #: ../interfaces.py:76
 msgid "Natura 2000 Vocabulary"
-msgstr ""
+msgstr "Natura 2000"
 
 #: ../interfaces.py:480
 msgid "Natura 2000 cached value"
-msgstr ""
+msgstr "Valeurs cachées Natura 2000"
 
 #: ../interfaces.py:265
 msgid "NoteworthyTrees Vocabulary"
-msgstr ""
+msgstr "Arbres remarquables"
 
 #: ../interfaces.py:29
 msgid "PCA Vocabulary"
-msgstr ""
+msgstr "PCA"
 
 #: ../interfaces.py:470
 msgid "PCA cached value"
-msgstr ""
+msgstr "Valeurs cachées PCA"
 
 #: ../interfaces.py:170
 msgid "Parcellings Vocabulary"
-msgstr ""
+msgstr "Lotissement"
 
 #: ../interfaces.py:500
 msgid "Parcellings cached value"
-msgstr ""
+msgstr "Valeurs cachées Lotissement"
 
 #: ../interfaces.py:217
 msgid "ProtectedBuilding Vocabulary"
-msgstr ""
+msgstr "Bien classé ou assimilé"
 
 #: ../interfaces.py:510
 msgid "ProtectedBuilding cached value"
-msgstr ""
+msgstr "Valeurs cachées Bien classé ou assimilé"
 
 #: ../interfaces.py:360
 msgid "RedesignSites Vocabulary"
-msgstr ""
+msgstr "Site à réaménager"
 
 #: ../interfaces.py:540
 msgid "RedesignSites cached value"
-msgstr ""
+msgstr "Valeurs cachées Site à réaménager"
 
 #: ../interfaces.py:123
 msgid "Reparcelling Vocabulary"
-msgstr ""
+msgstr "Perimetres de remembrements"
 
 #: ../interfaces.py:490
 msgid "Reparcelling cached value"
-msgstr ""
+msgstr "Valeurs cachées Perimetres de remembrements"
 
 #: ../interfaces.py:407
 msgid "SOL Vocabulary"
-msgstr ""
+msgstr "SOL"
 
 #: ../interfaces.py:550
 msgid "SOL cached value"
-msgstr ""
+msgstr "Valeurs cachées SOL"
 
 #: ../interfaces.py:45
 msgid "Title attribute"
-msgstr ""
+msgstr "Attribut pour le nom"
 
 #: ../interfaces.py:50
 msgid "Token attribute"
-msgstr ""
+msgstr "Attribut pour l'identifiant (token)"
 
 #: ../interfaces.py:313
 msgid "TownPlanningEnvironmentReports Vocabulary"
-msgstr ""
+msgstr "Rapports Urbanistiques et Environnementaux"
 
 #: ../interfaces.py:530
 msgid "TownPlanningEnvironmentReports cached value"
-msgstr ""
+msgstr "Valeurs cachées Rapports Urbanistiques et Environnementaux"
 
 #: ../interfaces.py:40
 msgid "URL"
@@ -112,13 +112,13 @@ msgstr ""
 
 #: ../profiles/default/controlpanel.xml
 msgid "Urban Vocabulary"
-msgstr ""
+msgstr "Vocabulaire Urban"
 
 #: ../browser/controlpanel.py:18
 msgid "Urban Vocabulary Settings"
-msgstr ""
+msgstr "Configuration pour les vocabulaires d'Urban"
 
 #: ../interfaces.py:58
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
