@@ -24,7 +24,7 @@ from urban.vocabulary import utils
 logger = logging.getLogger('urban.vocabulary')
 
 
-def _call_ws_cachekey(method, self, force):
+def _call_ws_cachekey(method, self, force=0):
     return (getattr(self, 'ws_url'), force, time() // (60 * 5))
 
 

@@ -64,7 +64,7 @@ class TestUrbanWebservice(unittest.TestCase):
         """Test UrbanWebservice._call_ws method when there is no url"""
         cls = self._cls
         cls.get_registry_value = Mock(return_value=None)
-        self.assertIsNone(cls._call_ws())
+        self.assertIsNone(cls._call_ws(force=0))
 
     def test_call_ws_server_error(self):
         """Test UrbanWebservice._call_ws method when the geo server return an
@@ -76,7 +76,7 @@ class TestUrbanWebservice(unittest.TestCase):
             self._request_result(200),
             self._request_result(500),
         ])
-        self.assertIsNone(cls._call_ws())
+        self.assertIsNone(cls._call_ws(force=0))
 
     def test_call_ws_not_success(self):
         """Test UrbanWebservice._call_ws method when the geo server return an
@@ -88,7 +88,7 @@ class TestUrbanWebservice(unittest.TestCase):
             self._request_result(200),
             self._request_result(200, {'success': False}),
         ])
-        self.assertIsNone(cls._call_ws())
+        self.assertIsNone(cls._call_ws(force=0))
 
     def test_call_ws_normal(self):
         """Test UrbanWebservice._call_ws method"""
@@ -101,7 +101,7 @@ class TestUrbanWebservice(unittest.TestCase):
         ])
         self.assertListEqual(
             [{'success': True, 'a': 1}, {'success': True, 'b': 2}],
-            cls._call_ws(),
+            cls._call_ws(force=0),
         )
 
     def test_map_result(self):
