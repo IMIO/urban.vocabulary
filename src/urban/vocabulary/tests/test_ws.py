@@ -104,6 +104,19 @@ class TestUrbanWebservice(unittest.TestCase):
             cls._call_ws(force=0),
         )
 
+    def test_call_ws_cached(self):
+        """Test UrbanWebservice._call_ws method cache key"""
+        cls = self._cls
+        urls = ['https://a.com?p=1', 'https://b.com?p=1']
+        cls.get_registry_value = Mock(return_value=urls)
+        requests.post = Mock(return_value=self._request_result(200))
+        result = [{'success': True}, {'success': True}]
+        self.assertListEqual(result, cls._call_ws(force=0))
+        requests.post = Mock(return_value=self._request_result(500))
+        self.assertListEqual(result, cls._call_ws(force=0))
+
+        self.assertIsNone(cls._call_ws(force=1))
+
     def test_map_result(self):
         """Test UrbanWebservice._map_result method"""
         cls = self._cls
