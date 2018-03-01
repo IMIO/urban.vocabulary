@@ -12,9 +12,9 @@
     <value key="natura_2000_token_attribute">CODE_SITE</value>
     <value key="natura_2000_boolean_mapping"></value>
     <value key="natura_2000_boolean_mapping_value"></value>
-    <value key="reparcelling_url">https://geonode-staging.imio.be/survey/survey_value_list?l=9&amp;att=NOMCHAN,ID_PERIM</value>
-    <value key="reparcelling_title_attribute">NOMCHAN</value>
-    <value key="reparcelling_token_attribute">ID_PERIM</value>
+    <value key="reparcelling_url">https://geonode-staging.imio.be/survey/survey_value_list?l=30&amp;att=LIBELLE,CODECARTO</value>
+    <value key="reparcelling_title_attribute">LIBELLE</value>
+    <value key="reparcelling_token_attribute">CODECARTO</value>
     <value key="reparcelling_boolean_mapping"></value>
     <value key="reparcelling_boolean_mapping_value"></value>
     <value key="parcellings_url">https://geonode-staging.imio.be/survey/survey_value_list?l=8&amp;att=CODE_ADMIN,CODEUNIQUE</value>
@@ -54,6 +54,39 @@
     <value key="sol_token_attribute">CODECARTO</value>
     <value key="sol_boolean_mapping"></value>
     <value key="sol_boolean_mapping_value"></value>
+    <value key="urban_renovation_url">https://geonode-staging.imio.be/survey/survey_value_list?l=27&amp;att=LIBELLE,CODECARTO</value>
+    <value key="urban_renovation_title_attribute">LIBELLE</value>
+    <value key="urban_renovation_token_attribute">CODECARTO</value>
+    <value key="urban_renovation_boolean_mapping"></value>
+    <value key="urban_renovation_boolean_mapping_value"></value>
+    <value key="urban_revival_url">https://geonode-staging.imio.be/survey/survey_value_list?l=28&amp;att=LIBELLE,CODECARTO</value>
+    <value key="urban_revival_title_attribute">LIBELLE</value>
+    <value key="urban_revival_token_attribute">CODECARTO</value>
+    <value key="urban_revival_boolean_mapping"></value>
+    <value key="urban_revival_boolean_mapping_value"></value>
+    <value key="area_plan_url">https://geonode-staging.imio.be/survey/survey_value_list?l=29&amp;att=DESCRIPTION,AFFECT</value>
+    <value key="area_plan_title_attribute">DESCRIPTION</value>
+    <value key="area_plan_token_attribute">AFFECT</value>
+    <value key="area_plan_boolean_mapping"></value>
+    <value key="area_plan_boolean_mapping_value"></value>
+    <value key="sar_url">https://geonode-staging.imio.be/survey/survey_value_list?l=31&amp;att=LIBELLE,CODECARTO</value>
+    <value key="sar_title_attribute">LIBELLE</value>
+    <value key="sar_token_attribute">CODECARTO</value>
+    <value key="sar_boolean_mapping"></value>
+    <value key="sar_boolean_mapping_value"></value>
+    <value key="karstic_url">https://geonode-staging.imio.be/survey/survey_value_list?l=33&amp;att=DENOM,SITE</value>
+    <value key="karstic_title_attribute">DENOM</value>
+    <value key="karstic_token_attribute">SITE</value>
+    <value key="karstic_boolean_mapping"></value>
+    <value key="karstic_boolean_mapping_value"></value>
+    <value key="catchment_area_url">
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
+    </value>
+    <value key="catchment_area_title_attribute">OUVR_NOM</value>
+    <value key="catchment_area_token_attribute">OUVR_CODE</value>
+    <value key="catchment_area_boolean_mapping"></value>
+    <value key="catchment_area_boolean_mapping_value"></value>
   </records>
   <records interface="urban.vocabulary.interfaces.IVocabularies" purge="False">
     <value key="pca_cached"><element></element></value>
@@ -65,5 +98,11 @@
     <value key="town_planning_environment_reports_cached"><element></element></value>
     <value key="redesign_sites_cached"><element></element></value>
     <value key="sol_cached"><element></element></value>
+    <value key="urban_renovation_cached"><element></element></value>
+    <value key="urban_revival_cached"><element></element></value>
+    <value key="area_plan_cached"><element></element></value>
+    <value key="sar_cached"><element></element></value>
+    <value key="karstic_cached"><element></element></value>
+    <value key="catchment_area_cached"><element></element></value>
   </records>
 </registry>

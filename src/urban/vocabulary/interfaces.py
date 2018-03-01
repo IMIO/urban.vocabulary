@@ -447,6 +447,289 @@ class ISOLSettings(model.Schema):
     )
 
 
+class IUrbanRenovationSettings(model.Schema):
+
+    model.fieldset(
+        'urban_renovation',
+        label=_('UrbanRenovation Vocabulary'),
+        fields=[
+            'urban_renovation_url',
+            'urban_renovation_title_attribute',
+            'urban_renovation_token_attribute',
+            'urban_renovation_boolean_mapping',
+            'urban_renovation_boolean_mapping_value',
+        ],
+    )
+
+    urban_renovation_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    urban_renovation_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    urban_renovation_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(urban_renovation_boolean_mapping=MultiSelect2FieldWidget)
+    urban_renovation_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.UrbanRenovation',
+        ),
+        required=False,
+    )
+
+    urban_renovation_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class IUrbanRevivalSettings(model.Schema):
+
+    model.fieldset(
+        'urban_revival',
+        label=_('UrbanRevival Vocabulary'),
+        fields=[
+            'urban_revival_url',
+            'urban_revival_title_attribute',
+            'urban_revival_token_attribute',
+            'urban_revival_boolean_mapping',
+            'urban_revival_boolean_mapping_value',
+        ],
+    )
+
+    urban_revival_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    urban_revival_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    urban_revival_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(urban_revival_boolean_mapping=MultiSelect2FieldWidget)
+    urban_revival_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.UrbanRevival',
+        ),
+        required=False,
+    )
+
+    urban_revival_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class IAreaPlanSettings(model.Schema):
+
+    model.fieldset(
+        'area_plan',
+        label=_('AreaPlan Vocabulary'),
+        fields=[
+            'area_plan_url',
+            'area_plan_title_attribute',
+            'area_plan_token_attribute',
+            'area_plan_boolean_mapping',
+            'area_plan_boolean_mapping_value',
+        ],
+    )
+
+    area_plan_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    area_plan_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    area_plan_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(area_plan_boolean_mapping=MultiSelect2FieldWidget)
+    area_plan_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.AreaPlan',
+        ),
+        required=False,
+    )
+
+    area_plan_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class ISARSettings(model.Schema):
+
+    model.fieldset(
+        'sar',
+        label=_('SAR Vocabulary'),
+        fields=[
+            'sar_url',
+            'sar_title_attribute',
+            'sar_token_attribute',
+            'sar_boolean_mapping',
+            'sar_boolean_mapping_value',
+        ],
+    )
+
+    sar_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    sar_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    sar_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(sar_boolean_mapping=MultiSelect2FieldWidget)
+    sar_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.SAR',
+        ),
+        required=False,
+    )
+
+    sar_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class IKarsticSettings(model.Schema):
+
+    model.fieldset(
+        'karstic',
+        label=_('Karstic Vocabulary'),
+        fields=[
+            'karstic_url',
+            'karstic_title_attribute',
+            'karstic_token_attribute',
+            'karstic_boolean_mapping',
+            'karstic_boolean_mapping_value',
+        ],
+    )
+
+    karstic_url = schema.TextLine(
+        title=_(u'URL'),
+        required=True,
+    )
+
+    karstic_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    karstic_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(karstic_boolean_mapping=MultiSelect2FieldWidget)
+    karstic_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.Karstic',
+        ),
+        required=False,
+    )
+
+    karstic_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
+class ICatchmentAreaSettings(model.Schema):
+
+    model.fieldset(
+        'catchment_area',
+        label=_('CatchmentArea Vocabulary'),
+        fields=[
+            'catchment_area_url',
+            'catchment_area_title_attribute',
+            'catchment_area_token_attribute',
+            'catchment_area_boolean_mapping',
+            'catchment_area_boolean_mapping_value',
+        ],
+    )
+
+    catchment_area_url = schema.List(
+        title=_(u'URL(s)'),
+        value_type=schema.TextLine(title=_(u'URL')),
+        required=True,
+    )
+
+    catchment_area_title_attribute = schema.TextLine(
+        title=_(u'Title attribute'),
+        required=True,
+    )
+
+    catchment_area_token_attribute = schema.TextLine(
+        title=_(u'Token attribute'),
+        required=True,
+    )
+
+    form.widget(catchment_area_boolean_mapping=MultiSelect2FieldWidget)
+    catchment_area_boolean_mapping = schema.List(
+        title=_(u'Mapping of vocabularies values to boolean'),
+        value_type=schema.Choice(
+            title=_(u'Value'),
+            vocabulary='urban.vocabulary.CatchmentArea',
+        ),
+        required=False,
+    )
+
+    catchment_area_boolean_mapping_value = schema.Choice(
+        title=_(u'Boolean mapping value'),
+        values=(True, False),
+        required=True,
+        default=True,
+    )
+
+
 class ISettings(IPCASettings,
                 INatura2000Settings,
                 IReparcellingSettings,
@@ -455,7 +738,13 @@ class ISettings(IPCASettings,
                 INoteworthyTreesSettings,
                 ITownPlanningEnvironmentReportsSettings,
                 IRedesignSitesSettings,
-                ISOLSettings):
+                ISOLSettings,
+                IUrbanRenovationSettings,
+                IUrbanRevivalSettings,
+                IAreaPlanSettings,
+                ISARSettings,
+                IKarsticSettings,
+                ICatchmentAreaSettings):
 
     form.widget(polygon=TextAreaFieldWidget)
     polygon = schema.TextLine(
@@ -548,6 +837,66 @@ class IVocabularies(Interface):
 
     sol_cached = schema.List(
         title=_(u'SOL cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    urban_renovation_cached = schema.List(
+        title=_(u'UrbanRenovation cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    urban_revival_cached = schema.List(
+        title=_(u'UrbanRevival cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    area_plan_cached = schema.List(
+        title=_(u'AreaPlan cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    sar_cached = schema.List(
+        title=_(u'SAR cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    karstic_cached = schema.List(
+        title=_(u'Karstic cached value'),
+        value_type=schema.List(
+            title=u'Vocabulary record',
+            value_type=schema.TextLine(title=u'Value'),
+            required=False,
+        ),
+        required=False,
+    )
+
+    catchment_area_cached = schema.List(
+        title=_(u'CatchmentArea cached value'),
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),

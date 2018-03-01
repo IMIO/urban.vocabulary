@@ -111,4 +111,76 @@
     factory=".solzones.SOLZonesBooleanVocabulary"
     />
 
+  <utility
+    name="urban.vocabulary.UrbanRenovation"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".urbanrenovation.UrbanRenovationVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.UrbanRenovationBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".urbanrenovation.UrbanRenovationBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.UrbanRevival"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".urbanrevival.UrbanRevivalVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.UrbanRevivalBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".urbanrevival.UrbanRevivalBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.AreaPlan"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".areaplan.AreaPlanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.AreaPlanBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".areaplan.AreaPlanBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.SAR"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".sar.SARVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.SARBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".sar.SARBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.Karstic"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".karstic.KarsticVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.KarsticBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".karstic.KarsticBooleanVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.CatchmentArea"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".catchmentarea.CatchmentAreaVocabulary"
+    />
+
+  <utility
+    name="urban.vocabulary.CatchmentAreaBoolean"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    factory=".catchmentarea.CatchmentAreaBooleanVocabulary"
+    />
+
 </configure>
