@@ -44,11 +44,6 @@
     <value key="town_planning_environment_reports_token_attribute">CODECARTO</value>
     <value key="town_planning_environment_reports_boolean_mapping"></value>
     <value key="town_planning_environment_reports_boolean_mapping_value"></value>
-    <value key="redesign_sites_url">https://geonode-staging.imio.be/survey/survey_value_list?l=13&amp;att=LIBELLE,CODECARTO</value>
-    <value key="redesign_sites_title_attribute">LIBELLE</value>
-    <value key="redesign_sites_token_attribute">CODECARTO</value>
-    <value key="redesign_sites_boolean_mapping"></value>
-    <value key="redesign_sites_boolean_mapping_value"></value>
     <value key="sol_url">https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=LIBELLE,CODECARTO</value>
     <value key="sol_title_attribute">LIBELLE</value>
     <value key="sol_token_attribute">CODECARTO</value>
@@ -96,7 +91,6 @@
     <value key="protected_building_cached"><element></element></value>
     <value key="noteworthy_trees_cached"><element></element></value>
     <value key="town_planning_environment_reports_cached"><element></element></value>
-    <value key="redesign_sites_cached"><element></element></value>
     <value key="sol_cached"><element></element></value>
     <value key="urban_renovation_cached"><element></element></value>
     <value key="urban_revival_cached"><element></element></value>

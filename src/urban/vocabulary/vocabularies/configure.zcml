@@ -88,18 +88,6 @@
     />
 
   <utility
-    name="urban.vocabulary.RedesignSites"
-    provides="zope.schema.interfaces.IVocabularyFactory"
-    factory=".redesignsites.RedesignSitesVocabulary"
-    />
-
-  <utility
-    name="urban.vocabulary.RedesignSitesBoolean"
-    provides="zope.schema.interfaces.IVocabularyFactory"
-    factory=".redesignsites.RedesignSitesBooleanVocabulary"
-    />
-
-  <utility
     name="urban.vocabulary.SOLZones"
     provides="zope.schema.interfaces.IVocabularyFactory"
     factory=".solzones.SOLZonesVocabulary"

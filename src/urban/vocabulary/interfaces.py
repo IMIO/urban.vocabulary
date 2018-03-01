@@ -353,53 +353,6 @@ class ITownPlanningEnvironmentReportsSettings(model.Schema):
     )
 
 
-class IRedesignSitesSettings(model.Schema):
-
-    model.fieldset(
-        'redesign_sites',
-        label=_('RedesignSites Vocabulary'),
-        fields=[
-            'redesign_sites_url',
-            'redesign_sites_title_attribute',
-            'redesign_sites_token_attribute',
-            'redesign_sites_boolean_mapping',
-            'redesign_sites_boolean_mapping_value',
-        ],
-    )
-
-    redesign_sites_url = schema.TextLine(
-        title=_(u'URL'),
-        required=True,
-    )
-
-    redesign_sites_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    redesign_sites_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
-        required=True,
-    )
-
-    form.widget(redesign_sites_boolean_mapping=MultiSelect2FieldWidget)
-    redesign_sites_boolean_mapping = schema.List(
-        title=_(u'Mapping of vocabularies values to boolean'),
-        value_type=schema.Choice(
-            title=_(u'Value'),
-            vocabulary='urban.vocabulary.RedesignSites',
-        ),
-        required=False,
-    )
-
-    redesign_sites_boolean_mapping_value = schema.Choice(
-        title=_(u'Boolean mapping value'),
-        values=(True, False),
-        required=True,
-        default=True,
-    )
-
-
 class ISOLSettings(model.Schema):
 
     model.fieldset(
@@ -737,7 +690,6 @@ class ISettings(IPCASettings,
                 IProtectedBuildingSettings,
                 INoteworthyTreesSettings,
                 ITownPlanningEnvironmentReportsSettings,
-                IRedesignSitesSettings,
                 ISOLSettings,
                 IUrbanRenovationSettings,
                 IUrbanRevivalSettings,
@@ -817,16 +769,6 @@ class IVocabularies(Interface):
 
     town_planning_environment_reports_cached = schema.List(
         title=_(u'TownPlanningEnvironmentReports cached value'),
-        value_type=schema.List(
-            title=u'Vocabulary record',
-            value_type=schema.TextLine(title=u'Value'),
-            required=False,
-        ),
-        required=False,
-    )
-
-    redesign_sites_cached = schema.List(
-        title=_(u'RedesignSites cached value'),
         value_type=schema.List(
             title=u'Vocabulary record',
             value_type=schema.TextLine(title=u'Value'),
