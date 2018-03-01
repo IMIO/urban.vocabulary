@@ -16,11 +16,11 @@ msgstr ""
 
 #: ../interfaces.py:501
 msgid "AreaPlan Vocabulary"
-msgstr ""
+msgstr "Plan de secteur"
 
 #: ../interfaces.py:811
 msgid "AreaPlan cached value"
-msgstr ""
+msgstr "Valeurs cachées plan de secteur"
 
 #: ../interfaces.py:65
 msgid "Boolean mapping value"
@@ -28,11 +28,11 @@ msgstr "Booléen pour la correspondance"
 
 #: ../interfaces.py:642
 msgid "CatchmentArea Vocabulary"
-msgstr ""
+msgstr "Zone de captage"
 
 #: ../interfaces.py:841
 msgid "CatchmentArea cached value"
-msgstr ""
+msgstr "Valeurs cachées zone de captage"
 
 #: ../interfaces.py:703
 msgid "City polygon"
@@ -40,11 +40,11 @@ msgstr "Polygone de la ville"
 
 #: ../interfaces.py:595
 msgid "Karstic Vocabulary"
-msgstr ""
+msgstr "Contraintes Karstiques"
 
 #: ../interfaces.py:831
 msgid "Karstic cached value"
-msgstr ""
+msgstr "Valeurs cachées contraintes karstiques"
 
 #: ../interfaces.py:56
 msgid "Mapping of vocabularies values to boolean"
@@ -96,11 +96,11 @@ msgstr "Valeurs cachées Perimetres de remembrements"
 
 #: ../interfaces.py:548
 msgid "SAR Vocabulary"
-msgstr ""
+msgstr "SAR"
 
 #: ../interfaces.py:821
 msgid "SAR cached value"
-msgstr ""
+msgstr "Valeurs cachées SAR"
 
 #: ../interfaces.py:360
 msgid "SOL Vocabulary"
@@ -148,19 +148,19 @@ msgstr "Configuration pour les vocabulaires d'Urban"
 
 #: ../interfaces.py:407
 msgid "UrbanRenovation Vocabulary"
-msgstr ""
+msgstr "Rénovacation Urbaine"
 
 #: ../interfaces.py:791
 msgid "UrbanRenovation cached value"
-msgstr ""
+msgstr "Valeurs cachées rénovation urbaine"
 
 #: ../interfaces.py:454
 msgid "UrbanRevival Vocabulary"
-msgstr ""
+msgstr "Revitalisation Urbaine"
 
 #: ../interfaces.py:801
 msgid "UrbanRevival cached value"
-msgstr ""
+msgstr "Valeurs cachées revitalisation urbaine"
 
 #: ../interfaces.py:58
 msgid "Value"
