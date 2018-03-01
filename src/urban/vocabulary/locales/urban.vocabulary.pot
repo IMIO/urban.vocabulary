@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-29 15:46+0000\n"
+"POT-Creation-Date: 2018-03-01 12:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,36 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: urban.vocabulary\n"
 
+#: ../interfaces.py:501
+msgid "AreaPlan Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:811
+msgid "AreaPlan cached value"
+msgstr ""
+
 #: ../interfaces.py:65
 msgid "Boolean mapping value"
 msgstr ""
 
-#: ../interfaces.py:462
+#: ../interfaces.py:642
+msgid "CatchmentArea Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:841
+msgid "CatchmentArea cached value"
+msgstr ""
+
+#: ../interfaces.py:703
 msgid "City polygon"
+msgstr ""
+
+#: ../interfaces.py:595
+msgid "Karstic Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:831
+msgid "Karstic cached value"
 msgstr ""
 
 #: ../interfaces.py:56
@@ -33,7 +57,7 @@ msgstr ""
 msgid "Natura 2000 Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:480
+#: ../interfaces.py:721
 msgid "Natura 2000 cached value"
 msgstr ""
 
@@ -45,7 +69,7 @@ msgstr ""
 msgid "PCA Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:470
+#: ../interfaces.py:711
 msgid "PCA cached value"
 msgstr ""
 
@@ -53,7 +77,7 @@ msgstr ""
 msgid "Parcellings Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:500
+#: ../interfaces.py:741
 msgid "Parcellings cached value"
 msgstr ""
 
@@ -61,31 +85,31 @@ msgstr ""
 msgid "ProtectedBuilding Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:510
+#: ../interfaces.py:751
 msgid "ProtectedBuilding cached value"
-msgstr ""
-
-#: ../interfaces.py:360
-msgid "RedesignSites Vocabulary"
-msgstr ""
-
-#: ../interfaces.py:540
-msgid "RedesignSites cached value"
 msgstr ""
 
 #: ../interfaces.py:123
 msgid "Reparcelling Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:490
+#: ../interfaces.py:731
 msgid "Reparcelling cached value"
 msgstr ""
 
-#: ../interfaces.py:407
+#: ../interfaces.py:548
+msgid "SAR Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:821
+msgid "SAR cached value"
+msgstr ""
+
+#: ../interfaces.py:360
 msgid "SOL Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:550
+#: ../interfaces.py:781
 msgid "SOL cached value"
 msgstr ""
 
@@ -101,7 +125,7 @@ msgstr ""
 msgid "TownPlanningEnvironmentReports Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:530
+#: ../interfaces.py:771
 msgid "TownPlanningEnvironmentReports cached value"
 msgstr ""
 
@@ -113,7 +137,7 @@ msgstr ""
 msgid "URL(s)"
 msgstr ""
 
-#: ../browser/controlpanel.py:37
+#: ../browser/controlpanel.py:38
 msgid "Update vocabularies"
 msgstr ""
 
@@ -121,15 +145,31 @@ msgstr ""
 msgid "Urban Vocabulary"
 msgstr ""
 
-#: ../browser/controlpanel.py:22
+#: ../browser/controlpanel.py:23
 msgid "Urban Vocabulary Settings"
+msgstr ""
+
+#: ../interfaces.py:407
+msgid "UrbanRenovation Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:791
+msgid "UrbanRenovation cached value"
+msgstr ""
+
+#: ../interfaces.py:454
+msgid "UrbanRevival Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:801
+msgid "UrbanRevival cached value"
 msgstr ""
 
 #: ../interfaces.py:58
 msgid "Value"
 msgstr ""
 
-#: ../browser/controlpanel.py:51
+#: ../browser/controlpanel.py:52
 msgid "Vocabularies updated : {0}"
 msgstr ""
 

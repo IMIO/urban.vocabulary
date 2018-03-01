@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-29 15:46+0000\n"
+"POT-Creation-Date: 2018-03-01 12:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,13 +14,37 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ../interfaces.py:501
+msgid "AreaPlan Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:811
+msgid "AreaPlan cached value"
+msgstr ""
+
 #: ../interfaces.py:65
 msgid "Boolean mapping value"
 msgstr "Booléen pour la correspondance"
 
-#: ../interfaces.py:462
+#: ../interfaces.py:642
+msgid "CatchmentArea Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:841
+msgid "CatchmentArea cached value"
+msgstr ""
+
+#: ../interfaces.py:703
 msgid "City polygon"
 msgstr "Polygone de la ville"
+
+#: ../interfaces.py:595
+msgid "Karstic Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:831
+msgid "Karstic cached value"
+msgstr ""
 
 #: ../interfaces.py:56
 msgid "Mapping of vocabularies values to boolean"
@@ -30,7 +54,7 @@ msgstr "Valeur correspondante pour le vocabulaire de booléen"
 msgid "Natura 2000 Vocabulary"
 msgstr "Natura 2000"
 
-#: ../interfaces.py:480
+#: ../interfaces.py:721
 msgid "Natura 2000 cached value"
 msgstr "Valeurs cachées Natura 2000"
 
@@ -42,7 +66,7 @@ msgstr "Arbres remarquables"
 msgid "PCA Vocabulary"
 msgstr "PCA"
 
-#: ../interfaces.py:470
+#: ../interfaces.py:711
 msgid "PCA cached value"
 msgstr "Valeurs cachées PCA"
 
@@ -50,7 +74,7 @@ msgstr "Valeurs cachées PCA"
 msgid "Parcellings Vocabulary"
 msgstr "Lotissement"
 
-#: ../interfaces.py:500
+#: ../interfaces.py:741
 msgid "Parcellings cached value"
 msgstr "Valeurs cachées Lotissement"
 
@@ -58,31 +82,31 @@ msgstr "Valeurs cachées Lotissement"
 msgid "ProtectedBuilding Vocabulary"
 msgstr "Bien classé ou assimilé"
 
-#: ../interfaces.py:510
+#: ../interfaces.py:751
 msgid "ProtectedBuilding cached value"
 msgstr "Valeurs cachées Bien classé ou assimilé"
-
-#: ../interfaces.py:360
-msgid "RedesignSites Vocabulary"
-msgstr "Site à réaménager"
-
-#: ../interfaces.py:540
-msgid "RedesignSites cached value"
-msgstr "Valeurs cachées Site à réaménager"
 
 #: ../interfaces.py:123
 msgid "Reparcelling Vocabulary"
 msgstr "Perimetres de remembrements"
 
-#: ../interfaces.py:490
+#: ../interfaces.py:731
 msgid "Reparcelling cached value"
 msgstr "Valeurs cachées Perimetres de remembrements"
 
-#: ../interfaces.py:407
+#: ../interfaces.py:548
+msgid "SAR Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:821
+msgid "SAR cached value"
+msgstr ""
+
+#: ../interfaces.py:360
 msgid "SOL Vocabulary"
 msgstr "SOL"
 
-#: ../interfaces.py:550
+#: ../interfaces.py:781
 msgid "SOL cached value"
 msgstr "Valeurs cachées SOL"
 
@@ -98,7 +122,7 @@ msgstr "Attribut pour l'identifiant (token)"
 msgid "TownPlanningEnvironmentReports Vocabulary"
 msgstr "Rapports Urbanistiques et Environnementaux"
 
-#: ../interfaces.py:530
+#: ../interfaces.py:771
 msgid "TownPlanningEnvironmentReports cached value"
 msgstr "Valeurs cachées Rapports Urbanistiques et Environnementaux"
 
@@ -110,7 +134,7 @@ msgstr ""
 msgid "URL(s)"
 msgstr ""
 
-#: ../browser/controlpanel.py:37
+#: ../browser/controlpanel.py:38
 msgid "Update vocabularies"
 msgstr "Mise à jour des vocabulaires"
 
@@ -118,15 +142,31 @@ msgstr "Mise à jour des vocabulaires"
 msgid "Urban Vocabulary"
 msgstr "Vocabulaire Urban"
 
-#: ../browser/controlpanel.py:22
+#: ../browser/controlpanel.py:23
 msgid "Urban Vocabulary Settings"
 msgstr "Configuration pour les vocabulaires d'Urban"
+
+#: ../interfaces.py:407
+msgid "UrbanRenovation Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:791
+msgid "UrbanRenovation cached value"
+msgstr ""
+
+#: ../interfaces.py:454
+msgid "UrbanRevival Vocabulary"
+msgstr ""
+
+#: ../interfaces.py:801
+msgid "UrbanRevival cached value"
+msgstr ""
 
 #: ../interfaces.py:58
 msgid "Value"
 msgstr "Valeur"
 
-#: ../browser/controlpanel.py:51
+#: ../browser/controlpanel.py:52
 msgid "Vocabularies updated : {0}"
 msgstr "Vocabulaires mis à jours : {0}"
 
