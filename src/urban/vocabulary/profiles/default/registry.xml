@@ -3,23 +3,15 @@
   <records interface="urban.vocabulary.interfaces.ISettings" purge="False">
     <value key="polygon"></value>
     <value key="pca_url">https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=LIBELLE,CODECARTO</value>
-    <value key="pca_title_attribute">LIBELLE</value>
-    <value key="pca_token_attribute">CODECARTO</value>
     <value key="pca_boolean_mapping"></value>
     <value key="pca_boolean_mapping_value"></value>
     <value key="natura_2000_url">https://geonode-staging.imio.be/survey/survey_value_list?l=2&amp;att=NOM,CODE_SITE</value>
-    <value key="natura_2000_title_attribute">NOM</value>
-    <value key="natura_2000_token_attribute">CODE_SITE</value>
     <value key="natura_2000_boolean_mapping"></value>
     <value key="natura_2000_boolean_mapping_value"></value>
     <value key="reparcelling_url">https://geonode-staging.imio.be/survey/survey_value_list?l=30&amp;att=LIBELLE,CODECARTO</value>
-    <value key="reparcelling_title_attribute">LIBELLE</value>
-    <value key="reparcelling_token_attribute">CODECARTO</value>
     <value key="reparcelling_boolean_mapping"></value>
     <value key="reparcelling_boolean_mapping_value"></value>
     <value key="parcellings_url">https://geonode-staging.imio.be/survey/survey_value_list?l=8&amp;att=CODE_ADMIN,CODEUNIQUE</value>
-    <value key="parcellings_title_attribute">CODE_ADMIN</value>
-    <value key="parcellings_token_attribute">CODEUNIQUE</value>
     <value key="parcellings_boolean_mapping"></value>
     <value key="parcellings_boolean_mapping_value"></value>
     <value key="protected_building_url">
@@ -27,59 +19,39 @@
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=16&amp;att=LIBELLE,CODECARTO</element>
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=18&amp;att=LIBELLE,CODECARTO</element>
     </value>
-    <value key="protected_building_title_attribute">LIBELLE</value>
-    <value key="protected_building_token_attribute">CODECARTO</value>
     <value key="protected_building_boolean_mapping"></value>
     <value key="protected_building_boolean_mapping_value"></value>
     <value key="noteworthy_trees_url">
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=14&amp;att=SPFR,SITEAR</element>
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=15&amp;att=SPFR,SITEAR</element>
     </value>
-    <value key="noteworthy_trees_title_attribute">SPFR</value>
-    <value key="noteworthy_trees_token_attribute">SITEAR</value>
     <value key="noteworthy_trees_boolean_mapping"></value>
     <value key="noteworthy_trees_boolean_mapping_value"></value>
     <value key="town_planning_environment_reports_url">https://geonode-staging.imio.be/survey/survey_value_list?l=10&amp;att=LIBELLE,CODECARTO</value>
-    <value key="town_planning_environment_reports_title_attribute">LIBELLE</value>
-    <value key="town_planning_environment_reports_token_attribute">CODECARTO</value>
     <value key="town_planning_environment_reports_boolean_mapping"></value>
     <value key="town_planning_environment_reports_boolean_mapping_value"></value>
     <value key="sol_url">https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=LIBELLE,CODECARTO</value>
-    <value key="sol_title_attribute">LIBELLE</value>
-    <value key="sol_token_attribute">CODECARTO</value>
     <value key="sol_boolean_mapping"></value>
     <value key="sol_boolean_mapping_value"></value>
     <value key="urban_renovation_url">https://geonode-staging.imio.be/survey/survey_value_list?l=27&amp;att=LIBELLE,CODECARTO</value>
-    <value key="urban_renovation_title_attribute">LIBELLE</value>
-    <value key="urban_renovation_token_attribute">CODECARTO</value>
     <value key="urban_renovation_boolean_mapping"></value>
     <value key="urban_renovation_boolean_mapping_value"></value>
     <value key="urban_revival_url">https://geonode-staging.imio.be/survey/survey_value_list?l=28&amp;att=LIBELLE,CODECARTO</value>
-    <value key="urban_revival_title_attribute">LIBELLE</value>
-    <value key="urban_revival_token_attribute">CODECARTO</value>
     <value key="urban_revival_boolean_mapping"></value>
     <value key="urban_revival_boolean_mapping_value"></value>
     <value key="area_plan_url">https://geonode-staging.imio.be/survey/survey_value_list?l=29&amp;att=DESCRIPTION,AFFECT</value>
-    <value key="area_plan_title_attribute">DESCRIPTION</value>
-    <value key="area_plan_token_attribute">AFFECT</value>
     <value key="area_plan_boolean_mapping"></value>
     <value key="area_plan_boolean_mapping_value"></value>
     <value key="sar_url">https://geonode-staging.imio.be/survey/survey_value_list?l=31&amp;att=LIBELLE,CODECARTO</value>
-    <value key="sar_title_attribute">LIBELLE</value>
-    <value key="sar_token_attribute">CODECARTO</value>
     <value key="sar_boolean_mapping"></value>
     <value key="sar_boolean_mapping_value"></value>
     <value key="karstic_url">https://geonode-staging.imio.be/survey/survey_value_list?l=33&amp;att=DENOM,SITE</value>
-    <value key="karstic_title_attribute">DENOM</value>
-    <value key="karstic_token_attribute">SITE</value>
     <value key="karstic_boolean_mapping"></value>
     <value key="karstic_boolean_mapping_value"></value>
     <value key="catchment_area_url">
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
       <element>https://geonode-staging.imio.be/survey/survey_value_list?l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
     </value>
-    <value key="catchment_area_title_attribute">OUVR_NOM</value>
-    <value key="catchment_area_token_attribute">OUVR_CODE</value>
     <value key="catchment_area_boolean_mapping"></value>
     <value key="catchment_area_boolean_mapping_value"></value>
   </records>

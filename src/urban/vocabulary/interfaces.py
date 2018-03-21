@@ -29,8 +29,6 @@ class IPCASettings(model.Schema):
         label=_('PCA Vocabulary'),
         fields=[
             'pca_url',
-            'pca_title_attribute',
-            'pca_token_attribute',
             'pca_boolean_mapping',
             'pca_boolean_mapping_value',
         ],
@@ -38,16 +36,7 @@ class IPCASettings(model.Schema):
 
     pca_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    pca_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    pca_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -76,8 +65,6 @@ class INatura2000Settings(model.Schema):
         label=_('Natura 2000 Vocabulary'),
         fields=[
             'natura_2000_url',
-            'natura_2000_title_attribute',
-            'natura_2000_token_attribute',
             'natura_2000_boolean_mapping',
             'natura_2000_boolean_mapping_value',
         ],
@@ -85,16 +72,7 @@ class INatura2000Settings(model.Schema):
 
     natura_2000_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    natura_2000_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    natura_2000_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -123,8 +101,6 @@ class IReparcellingSettings(model.Schema):
         label=_('Reparcelling Vocabulary'),
         fields=[
             'reparcelling_url',
-            'reparcelling_title_attribute',
-            'reparcelling_token_attribute',
             'reparcelling_boolean_mapping',
             'reparcelling_boolean_mapping_value',
         ],
@@ -132,16 +108,7 @@ class IReparcellingSettings(model.Schema):
 
     reparcelling_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    reparcelling_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    reparcelling_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -170,8 +137,6 @@ class IParcellingsSettings(model.Schema):
         label=_('Parcellings Vocabulary'),
         fields=[
             'parcellings_url',
-            'parcellings_title_attribute',
-            'parcellings_token_attribute',
             'parcellings_boolean_mapping',
             'parcellings_boolean_mapping_value',
         ],
@@ -179,16 +144,7 @@ class IParcellingsSettings(model.Schema):
 
     parcellings_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    parcellings_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    parcellings_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -217,8 +173,6 @@ class IProtectedBuildingSettings(model.Schema):
         label=_('ProtectedBuilding Vocabulary'),
         fields=[
             'protected_building_url',
-            'protected_building_title_attribute',
-            'protected_building_token_attribute',
             'protected_building_boolean_mapping',
             'protected_building_boolean_mapping_value',
         ],
@@ -226,17 +180,8 @@ class IProtectedBuildingSettings(model.Schema):
 
     protected_building_url = schema.List(
         title=_(u'URL(s)'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         value_type=schema.TextLine(title=_(u'URL')),
-        required=True,
-    )
-
-    protected_building_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    protected_building_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
         required=True,
     )
 
@@ -265,8 +210,6 @@ class INoteworthyTreesSettings(model.Schema):
         label=_('NoteworthyTrees Vocabulary'),
         fields=[
             'noteworthy_trees_url',
-            'noteworthy_trees_title_attribute',
-            'noteworthy_trees_token_attribute',
             'noteworthy_trees_boolean_mapping',
             'noteworthy_trees_boolean_mapping_value',
         ],
@@ -274,17 +217,8 @@ class INoteworthyTreesSettings(model.Schema):
 
     noteworthy_trees_url = schema.List(
         title=_(u'URL(s)'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         value_type=schema.TextLine(title=_(u'URL')),
-        required=True,
-    )
-
-    noteworthy_trees_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    noteworthy_trees_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
         required=True,
     )
 
@@ -313,8 +247,6 @@ class ITownPlanningEnvironmentReportsSettings(model.Schema):
         label=_('TownPlanningEnvironmentReports Vocabulary'),
         fields=[
             'town_planning_environment_reports_url',
-            'town_planning_environment_reports_title_attribute',
-            'town_planning_environment_reports_token_attribute',
             'town_planning_environment_reports_boolean_mapping',
             'town_planning_environment_reports_boolean_mapping_value',
         ],
@@ -322,16 +254,7 @@ class ITownPlanningEnvironmentReportsSettings(model.Schema):
 
     town_planning_environment_reports_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    town_planning_environment_reports_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    town_planning_environment_reports_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -360,8 +283,6 @@ class ISOLSettings(model.Schema):
         label=_('SOL Vocabulary'),
         fields=[
             'sol_url',
-            'sol_title_attribute',
-            'sol_token_attribute',
             'sol_boolean_mapping',
             'sol_boolean_mapping_value',
         ],
@@ -369,16 +290,7 @@ class ISOLSettings(model.Schema):
 
     sol_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    sol_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    sol_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -407,8 +319,6 @@ class IUrbanRenovationSettings(model.Schema):
         label=_('UrbanRenovation Vocabulary'),
         fields=[
             'urban_renovation_url',
-            'urban_renovation_title_attribute',
-            'urban_renovation_token_attribute',
             'urban_renovation_boolean_mapping',
             'urban_renovation_boolean_mapping_value',
         ],
@@ -416,16 +326,7 @@ class IUrbanRenovationSettings(model.Schema):
 
     urban_renovation_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    urban_renovation_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    urban_renovation_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -454,8 +355,6 @@ class IUrbanRevivalSettings(model.Schema):
         label=_('UrbanRevival Vocabulary'),
         fields=[
             'urban_revival_url',
-            'urban_revival_title_attribute',
-            'urban_revival_token_attribute',
             'urban_revival_boolean_mapping',
             'urban_revival_boolean_mapping_value',
         ],
@@ -463,16 +362,7 @@ class IUrbanRevivalSettings(model.Schema):
 
     urban_revival_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    urban_revival_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    urban_revival_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -501,8 +391,6 @@ class IAreaPlanSettings(model.Schema):
         label=_('AreaPlan Vocabulary'),
         fields=[
             'area_plan_url',
-            'area_plan_title_attribute',
-            'area_plan_token_attribute',
             'area_plan_boolean_mapping',
             'area_plan_boolean_mapping_value',
         ],
@@ -510,16 +398,7 @@ class IAreaPlanSettings(model.Schema):
 
     area_plan_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    area_plan_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    area_plan_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -548,8 +427,6 @@ class ISARSettings(model.Schema):
         label=_('SAR Vocabulary'),
         fields=[
             'sar_url',
-            'sar_title_attribute',
-            'sar_token_attribute',
             'sar_boolean_mapping',
             'sar_boolean_mapping_value',
         ],
@@ -557,16 +434,7 @@ class ISARSettings(model.Schema):
 
     sar_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    sar_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    sar_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -595,8 +463,6 @@ class IKarsticSettings(model.Schema):
         label=_('Karstic Vocabulary'),
         fields=[
             'karstic_url',
-            'karstic_title_attribute',
-            'karstic_token_attribute',
             'karstic_boolean_mapping',
             'karstic_boolean_mapping_value',
         ],
@@ -604,16 +470,7 @@ class IKarsticSettings(model.Schema):
 
     karstic_url = schema.TextLine(
         title=_(u'URL'),
-        required=True,
-    )
-
-    karstic_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    karstic_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         required=True,
     )
 
@@ -642,8 +499,6 @@ class ICatchmentAreaSettings(model.Schema):
         label=_('CatchmentArea Vocabulary'),
         fields=[
             'catchment_area_url',
-            'catchment_area_title_attribute',
-            'catchment_area_token_attribute',
             'catchment_area_boolean_mapping',
             'catchment_area_boolean_mapping_value',
         ],
@@ -651,17 +506,8 @@ class ICatchmentAreaSettings(model.Schema):
 
     catchment_area_url = schema.List(
         title=_(u'URL(s)'),
+        description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
         value_type=schema.TextLine(title=_(u'URL')),
-        required=True,
-    )
-
-    catchment_area_title_attribute = schema.TextLine(
-        title=_(u'Title attribute'),
-        required=True,
-    )
-
-    catchment_area_token_attribute = schema.TextLine(
-        title=_(u'Token attribute'),
         required=True,
     )
 

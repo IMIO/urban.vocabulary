@@ -83,16 +83,15 @@ class UrbanWebservice(object):
             json = r.json()
             if json.get('success', True) is False:
                 return
-            result.append(json)
+            result.append((data, json))
         return result
 
-    def _map_result(self, json):
+    def _map_result(self, json, mapping):
         """
         Map the webservice result based on the mapping attributes from the
         registry
         """
         result = map(convert_value, json['result']['features'])
-        mapping = self.mapping
         normalizer = getUtility(IIDNormalizer)
         return [[unicode(normalizer.normalize(e[mapping['token']])),
                  self._format_title(e[mapping['title']]),
@@ -113,8 +112,10 @@ class UrbanWebservice(object):
         if not json_results:
             return False
         try:
-            for json in json_results:
-                values.extend(self._map_result(json))
+            for data, json in json_results:
+                mapping = {k: v for k, v in zip(('title', 'token'),
+                                                data['att'][0].split(','))}
+                values.extend(self._map_result(json, mapping))
         except KeyError:
             return False
         key = '{0}.{1}_cached'.format(
