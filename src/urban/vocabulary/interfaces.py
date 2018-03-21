@@ -396,9 +396,10 @@ class IAreaPlanSettings(model.Schema):
         ],
     )
 
-    area_plan_url = schema.TextLine(
-        title=_(u'URL'),
+    area_plan_url = schema.List(
+        title=_(u'URL(s)'),
         description=_(u"The order of the 'att' parameter must be TITLE,KEY"),
+        value_type=schema.TextLine(title=_(u'URL')),
         required=True,
     )
 

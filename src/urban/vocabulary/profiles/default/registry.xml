@@ -39,7 +39,14 @@
     <value key="urban_revival_url">https://geonode-staging.imio.be/survey/survey_value_list?l=28&amp;att=LIBELLE,CODECARTO</value>
     <value key="urban_revival_boolean_mapping"></value>
     <value key="urban_revival_boolean_mapping_value"></value>
-    <value key="area_plan_url">https://geonode-staging.imio.be/survey/survey_value_list?l=29&amp;att=DESCRIPTION,AFFECT</value>
+    <value key="area_plan_url">
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=29&amp;att=DESCRIPTION,AFFECT</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=37&amp;att=DESCRIPTION,STYPE</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=38&amp;att=DOSSIER,CODECARTO</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=39&amp;att=DESCRIPTION,STYPE</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=40&amp;att=DESCRIPTION,STYPE</element>
+      <element>https://geonode-staging.imio.be/survey/survey_value_list?l=41&amp;att=DESCRIPTION,STYPE</element>
+    </value>
     <value key="area_plan_boolean_mapping"></value>
     <value key="area_plan_boolean_mapping_value"></value>
     <value key="sar_url">https://geonode-staging.imio.be/survey/survey_value_list?l=31&amp;att=LIBELLE,CODECARTO</value>
