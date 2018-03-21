@@ -27,7 +27,7 @@ class BaseVocabulary(object):
     # See Products.Urban.UrbanVocabularyTerm.UrbanVocabulary for options
     registry_key = None
     _registry_interface = 'urban.vocabulary.interfaces.IVocabularies'
-    _expire_delay = 3600  # in seconds
+    _expire_delay = 86400  # in seconds
 
     def __call__(self, context):
         vocabulary = self._get_base_vocabulary(context)
