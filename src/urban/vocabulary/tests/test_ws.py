@@ -42,7 +42,10 @@ class TestUrbanWebservice(unittest.TestCase):
     def test_get_registry_value(self):
         """Test UrbanWebservice.get_registry_value method"""
         cls = self._cls
-        self.assertEqual('LIBELLE', cls.get_registry_value('title_attribute'))
+        self.assertEqual(
+            'https://geonode-staging.imio.be/survey/survey_value_list?l=7&att=LIBELLE,CODECARTO',
+            cls.get_registry_value('url'),
+        )
         self.assertIsNone(cls.get_registry_value('foo'))
         self.assertEqual('FOO', cls.get_registry_value('foo', default='FOO'))
 
@@ -53,12 +56,6 @@ class TestUrbanWebservice(unittest.TestCase):
         self.assertListEqual(['a'], cls.ws_url)
         cls.get_registry_value = Mock(return_value=['a', 'b'])
         self.assertListEqual(['a', 'b'], cls.ws_url)
-
-    def test_mapping(self):
-        """Test UrbanWebservice.mapping property"""
-        cls = self._cls
-        cls.get_registry_value = Mock(side_effect=['a', 'b'])
-        self.assertEqual({'title': 'a', 'token': 'b'}, cls.mapping)
 
     def test_call_ws_missing_url(self):
         """Test UrbanWebservice._call_ws method when there is no url"""
@@ -93,24 +90,28 @@ class TestUrbanWebservice(unittest.TestCase):
     def test_call_ws_normal(self):
         """Test UrbanWebservice._call_ws method"""
         cls = self._cls
-        urls = ['https://a.com?p=1', 'https://b.com?p=1']
+        urls = ['https://a.com?p=1', 'https://b.com?p=2']
         cls.get_registry_value = Mock(return_value=urls)
         requests.post = Mock(side_effect=[
             self._request_result(200, {'success': True, 'a': 1}),
             self._request_result(200, {'success': True, 'b': 2}),
         ])
         self.assertListEqual(
-            [{'success': True, 'a': 1}, {'success': True, 'b': 2}],
+            [({'p': ['1']}, {'success': True, 'a': 1}),
+             ({'p': ['2']}, {'success': True, 'b': 2})],
             cls._call_ws(force=0),
         )
 
     def test_call_ws_cached(self):
         """Test UrbanWebservice._call_ws method cache key"""
         cls = self._cls
-        urls = ['https://a.com?p=1', 'https://b.com?p=1']
+        urls = ['https://a.com?p=1', 'https://b.com?p=2']
         cls.get_registry_value = Mock(return_value=urls)
         requests.post = Mock(return_value=self._request_result(200))
-        result = [{'success': True}, {'success': True}]
+        result = [
+            ({'p': ['1']}, {'success': True}),
+            ({'p': ['2']}, {'success': True}),
+        ]
         self.assertListEqual(result, cls._call_ws(force=0))
         requests.post = Mock(return_value=self._request_result(500))
         self.assertListEqual(result, cls._call_ws(force=0))
@@ -125,9 +126,10 @@ class TestUrbanWebservice(unittest.TestCase):
             {'a': 'Token 1', 'b': 'Title 1'},
             {'a': 'Token 2', 'b': 'Title 2'},
         ]}}
+        mapping = {'title': 'b', 'token': 'a'}
         self.assertListEqual(
             [['token-1', 'Title 1', u'1'], ['token-2', 'Title 2', u'1']],
-            cls._map_result(json),
+            cls._map_result(json, mapping),
         )
 
     def test_format_title(self):
@@ -139,7 +141,9 @@ class TestUrbanWebservice(unittest.TestCase):
     def test_store_value_normal(self):
         """Test UrbanWebservice.store_values method"""
         cls = self._cls
-        cls._call_ws = Mock(return_value=[{}, {}])
+        cls._call_ws = Mock(return_value=[
+            ({'att': ['A,B']}, {}), ({'att': ['A,B']}, {}),
+        ])
         cls._map_result = Mock(side_effect=[
             [[u'token-1', u'Title 1'], [u'token-2', u'Title 2']],
             [[u'token-3', u'Title 3'], [u'token-4', u'Title 4']],
@@ -164,7 +168,7 @@ class TestUrbanWebservice(unittest.TestCase):
         """Test UrbanWebservice.store_values when the _map_result method raise
         and error"""
         cls = self._cls
-        cls._call_ws = Mock(return_value=[{}])
+        cls._call_ws = Mock(return_value=[({'att': ['A,B']}, {})])
         cls._map_result = Mock(side_effect=KeyError())
         self.assertFalse(cls.store_values())
         data = api.portal.get_registry_record(self._rkey)
