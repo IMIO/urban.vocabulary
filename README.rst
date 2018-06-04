@@ -25,8 +25,8 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/urban.vocabulary/issues
-- Source Code: https://github.com/collective/urban.vocabulary
+- Issue Tracker: https://github.com/IMIO/urban.vocabulary/issues
+- Source Code: https://github.com/IMIO/urban.vocabulary
 
 
 License
