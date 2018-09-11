@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-03-01 12:11+0000\n"
+"POT-Creation-Date: 2018-09-11 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,51 +17,63 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: urban.vocabulary\n"
 
-#: ../interfaces.py:501
+#: ../interfaces.py:391
 msgid "AreaPlan Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:811
+#: ../interfaces.py:663
 msgid "AreaPlan cached value"
 msgstr ""
 
-#: ../interfaces.py:65
+#: ../interfaces.py:54
 msgid "Boolean mapping value"
 msgstr ""
 
-#: ../interfaces.py:642
+#: ../interfaces.py:500
 msgid "CatchmentArea Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:841
+#: ../interfaces.py:693
 msgid "CatchmentArea cached value"
 msgstr ""
 
-#: ../interfaces.py:703
+#: ../interfaces.py:555
 msgid "City polygon"
 msgstr ""
 
-#: ../interfaces.py:595
+#: ../interfaces.py:549
+msgid "Coring service base url"
+msgstr ""
+
+#: ../configure.zcml:21
+msgid "Installs the urban.vocabulary add-on."
+msgstr ""
+
+#: ../testing.zcml:17
+msgid "Installs the urban.vocabulary testing"
+msgstr ""
+
+#: ../interfaces.py:464
 msgid "Karstic Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:831
+#: ../interfaces.py:683
 msgid "Karstic cached value"
 msgstr ""
 
-#: ../interfaces.py:56
+#: ../interfaces.py:45
 msgid "Mapping of vocabularies values to boolean"
 msgstr ""
 
-#: ../interfaces.py:76
+#: ../interfaces.py:65
 msgid "Natura 2000 Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:721
+#: ../interfaces.py:573
 msgid "Natura 2000 cached value"
 msgstr ""
 
-#: ../interfaces.py:265
+#: ../interfaces.py:210
 msgid "NoteworthyTrees Vocabulary"
 msgstr ""
 
@@ -69,71 +81,67 @@ msgstr ""
 msgid "PCA Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:711
+#: ../interfaces.py:563
 msgid "PCA cached value"
 msgstr ""
 
-#: ../interfaces.py:170
+#: ../interfaces.py:137
 msgid "Parcellings Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:741
+#: ../interfaces.py:593
 msgid "Parcellings cached value"
 msgstr ""
 
-#: ../interfaces.py:217
+#: ../interfaces.py:173
 msgid "ProtectedBuilding Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:751
+#: ../interfaces.py:603
 msgid "ProtectedBuilding cached value"
 msgstr ""
 
-#: ../interfaces.py:123
+#: ../interfaces.py:101
 msgid "Reparcelling Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:731
+#: ../interfaces.py:583
 msgid "Reparcelling cached value"
 msgstr ""
 
-#: ../interfaces.py:548
+#: ../interfaces.py:428
 msgid "SAR Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:821
+#: ../interfaces.py:673
 msgid "SAR cached value"
 msgstr ""
 
-#: ../interfaces.py:360
+#: ../interfaces.py:283
 msgid "SOL Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:781
+#: ../interfaces.py:633
 msgid "SOL cached value"
 msgstr ""
 
-#: ../interfaces.py:45
-msgid "Title attribute"
+#: ../interfaces.py:39
+msgid "The order of the 'att' parameter must be TITLE,KEY"
 msgstr ""
 
-#: ../interfaces.py:50
-msgid "Token attribute"
-msgstr ""
-
-#: ../interfaces.py:313
+#: ../interfaces.py:247
 msgid "TownPlanningEnvironmentReports Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:771
+#: ../interfaces.py:623
 msgid "TownPlanningEnvironmentReports cached value"
 msgstr ""
 
-#: ../interfaces.py:40
+#: ../interfaces.py:38
 msgid "URL"
 msgstr ""
 
-#: ../interfaces.py:228
+#: ../interfaces.py:182
 msgid "URL(s)"
 msgstr ""
 
@@ -149,23 +157,23 @@ msgstr ""
 msgid "Urban Vocabulary Settings"
 msgstr ""
 
-#: ../interfaces.py:407
+#: ../interfaces.py:319
 msgid "UrbanRenovation Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:791
+#: ../interfaces.py:643
 msgid "UrbanRenovation cached value"
 msgstr ""
 
-#: ../interfaces.py:454
+#: ../interfaces.py:355
 msgid "UrbanRevival Vocabulary"
 msgstr ""
 
-#: ../interfaces.py:801
+#: ../interfaces.py:653
 msgid "UrbanRevival cached value"
 msgstr ""
 
-#: ../interfaces.py:58
+#: ../interfaces.py:47
 msgid "Value"
 msgstr ""
 
@@ -173,3 +181,7 @@ msgstr ""
 msgid "Vocabularies updated : {0}"
 msgstr ""
 
+#: ../configure.zcml:21
+#: ../testing.zcml:17
+msgid "urban.vocabulary"
+msgstr ""

@@ -545,6 +545,11 @@ class ISettings(IPCASettings,
                 IKarsticSettings,
                 ICatchmentAreaSettings):
 
+    base_url = schema.TextLine(
+        title=_(u'Coring service base url'),
+        required=True,
+    )
+
     form.widget(polygon=TextAreaFieldWidget)
     polygon = schema.TextLine(
         title=_(u'City polygon'),
