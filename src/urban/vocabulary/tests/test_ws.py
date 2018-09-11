@@ -43,7 +43,7 @@ class TestUrbanWebservice(unittest.TestCase):
         """Test UrbanWebservice.get_registry_value method"""
         cls = self._cls
         self.assertEqual(
-            'https://geonode-staging.imio.be/survey/survey_value_list?l=7&att=LIBELLE,CODECARTO',
+            '{}l=7&att=LIBELLE,CODECARTO',
             cls.get_registry_value('url'),
         )
         self.assertIsNone(cls.get_registry_value('foo'))
@@ -52,10 +52,19 @@ class TestUrbanWebservice(unittest.TestCase):
     def test_ws_url(self):
         """Test UrbanWebservice.ws_url property"""
         cls = self._cls
-        cls.get_registry_value = Mock(return_value='a')
-        self.assertListEqual(['a'], cls.ws_url)
-        cls.get_registry_value = Mock(return_value=['a', 'b'])
-        self.assertListEqual(['a', 'b'], cls.ws_url)
+        cls.get_registry_value = Mock(return_value='{}a')
+        self.assertListEqual(
+            ['https://geonode-staging.imio.be/survey/survey_value_list?a'],
+            cls.ws_url
+        )
+        cls.get_registry_value = Mock(return_value=['{}a', 'b'])
+        self.assertListEqual(
+            [
+                'https://geonode-staging.imio.be/survey/survey_value_list?a',
+                'b'
+            ],
+            cls.ws_url
+        )
 
     def test_call_ws_missing_url(self):
         """Test UrbanWebservice._call_ws method when there is no url"""
