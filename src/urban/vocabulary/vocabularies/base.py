@@ -10,6 +10,7 @@ Created by mpeeters
 from Products.urban import UrbanVocabularyTerm
 from datetime import datetime
 from plone import api
+from plone.api.exc import InvalidParameterError
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
@@ -75,7 +76,12 @@ class BaseVocabulary(object):
             ))
 
         for voc in vocabularies:
-            values.extend(voc.getAllVocTerms(context).values())
+            try:
+                values.extend(voc.getAllVocTerms(context).values())
+            except InvalidParameterError:
+                # This may happen during import steps when `portal_urban`
+                # is not created yet
+                pass
         return values
 
     def _get_registry_items(self, context):
