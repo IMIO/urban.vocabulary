@@ -48,7 +48,7 @@ class UrbanWebservice(object):
 
     @property
     def ws_url(self):
-        base_url = api.portal.get_registry_record('urban.vocabulary.interfaces.ISettings.base_url')
+        base_url = api.portal.get_registry_record('urban.vocabulary.interfaces.ISettings.base_url', default='')
         url = self.get_registry_value('url', default=[])
 
         if not url:
