@@ -137,7 +137,7 @@ class TestUrbanWebservice(unittest.TestCase):
         ]}}
         mapping = {'title': 'b', 'token': 'a'}
         self.assertListEqual(
-            [['token-1', 'Title 1', u'1'], ['token-2', 'Title 2', u'1']],
+            [['token-1', 'Title 1', u'', u'1'], ['token-2', 'Title 2', u'', u'1']],
             cls._map_result(json, mapping),
         )
 

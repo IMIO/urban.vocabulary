@@ -34,7 +34,7 @@ class TestUtils(unittest.TestCase):
             SimpleVocabulary.createTerm(1, 1, 'a'),
             SimpleVocabulary.createTerm(2, 2, 'b'),
         ])
-        voc = utils.extend_vocabulary(vocabulary, [(3, 'c'), (4, 'd')])
+        voc = utils.extend_vocabulary(vocabulary, [(3, 'c', '',), (4, 'd', 'e')])
         self.assertEqual(4, len(voc))
         term = voc.getTermByToken('2')
         self.assertEqual(2, term.value)
@@ -42,6 +42,10 @@ class TestUtils(unittest.TestCase):
         term = voc.getTermByToken('3')
         self.assertEqual(3, term.value)
         self.assertEqual('c', term.title)
+        term = voc.getTermByToken('4')
+        # if a custom value is defined (e),  it should be used instead the
+        # default one (d)
+        self.assertEqual('e', term.title)
 
     def test_to_int(self):
         """Test utils.to_int function"""

@@ -51,7 +51,7 @@ class TestBaseVocabulary(unittest.TestCase):
         utils.time_now = Mock(return_value=self._now)
         api.portal.set_registry_record(
             'urban.vocabulary.interfaces.IVocabularies.pca_cached',
-            [[u'key1', u'value1', u'1'], [u'key2', u'value2', u'1']],
+            [[u'key1', u'value1', u'', u'1'], [u'key2', u'value2', u'', u'1']],
         )
 
     def tearDown(self):
@@ -90,8 +90,37 @@ class TestBaseVocabulary(unittest.TestCase):
         voc = self._instance
         voc._refresh_registry = Mock(return_value=None)
         self.assertEqual(
-            [(u'key1', u'value1'), (u'key2', u'value2')],
+            [(u'key1', u'value1', u''), (u'key2', u'value2', u'')],
             voc._get_registry_items(None),
+        )
+        self.assertTrue(voc._refresh_registry.called)
+
+    def test_get_registry_items_disabled_record(self):
+        # disable the first record (u'0')
+        api.portal.set_registry_record(
+            'urban.vocabulary.interfaces.IVocabularies.pca_cached',
+            [[u'key1', u'value1', u'', u'0'], [u'key2', u'value2', u'', u'1']],
+        )
+        voc = self._instance
+        voc._refresh_registry = Mock(return_value=None)
+        self.assertEqual(
+            [(u'key2', u'value2', u'')],
+            voc._get_registry_items(None),
+        )
+        self.assertTrue(voc._refresh_registry.called)
+
+    def test_get_registry_items_all_records(self):
+        # disable the first record (u'0')
+        api.portal.set_registry_record(
+            'urban.vocabulary.interfaces.IVocabularies.pca_cached',
+            [[u'key1', u'value1', u'', u'0'], [u'key2', u'value2', u'', u'1']],
+        )
+        voc = self._instance
+        voc._refresh_registry = Mock(return_value=None)
+        # return the disabled elements when 'all' paramater is True
+        self.assertEqual(
+            [(u'key1', u'value1', u''), (u'key2', u'value2', u'')],
+            voc._get_registry_items(None, all=True),
         )
         self.assertTrue(voc._refresh_registry.called)
 
