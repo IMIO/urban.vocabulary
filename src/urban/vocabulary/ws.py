@@ -103,6 +103,7 @@ class UrbanWebservice(object):
         normalizer = getUtility(IIDNormalizer)
         return [[unicode(normalizer.normalize(e[mapping['token']])),
                  self._format_title(e[mapping['title']]),
+                 u'',
                  u'1']
                 for e in result
                 if e[mapping['title']] and e[mapping['token']]]

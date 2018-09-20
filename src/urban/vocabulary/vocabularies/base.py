@@ -92,7 +92,7 @@ class BaseVocabulary(object):
         record = api.portal.get_registry_record(key, default=None)
         if record is not None:
             self._refresh_registry()
-        return [(e[0], e[1]) for e in record and record or [] if e]
+        return [(e[0], e[1], e[2]) for e in record and record or [] if e and int(e[3])]
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
