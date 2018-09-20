@@ -84,7 +84,7 @@ class BaseVocabulary(object):
                 pass
         return values
 
-    def _get_registry_items(self, context):
+    def _get_registry_items(self, context, all=False):
         key = '{0}.{1}_cached'.format(
             self._registry_interface,
             self.registry_key,
@@ -92,7 +92,7 @@ class BaseVocabulary(object):
         record = api.portal.get_registry_record(key, default=None)
         if record is not None:
             self._refresh_registry()
-        return [(e[0], e[1], e[2]) for e in record and record or [] if e and int(e[3])]
+        return [(e[0], e[1], e[2]) for e in record and record or [] if e and (all or int(e[3]))]
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
