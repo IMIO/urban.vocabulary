@@ -112,7 +112,7 @@ class UrbanWebservice(object):
     def _format_title(value):
         return utils.to_str(value).strip()
 
-    def store_values(self, force=False):
+    def store_values(self, force=False, override=False):
         """Store the webservice result into the registry"""
         if force is True:
             force = time()
@@ -131,8 +131,29 @@ class UrbanWebservice(object):
             'urban.vocabulary.interfaces.IVocabularies',
             self.registry_key,
         )
-        api.portal.set_registry_record(key, values)
+        old_values = api.portal.get_registry_record(key)
+        if not override:
+            api.portal.set_registry_record(key, self._update_values(old_values, values))
+        else:
+            api.portal.set_registry_record(key, values)
         return True
+
+    def _update_values(self, old_values, new_values):
+        if not old_values:
+            return new_values
+        old_values_dict = dict(
+            [(r[0], {'val': r[1], 'custom': r[2], 'active': r[3]}) for r in old_values]
+        )
+        new_values_dict = dict(
+            [(r[0], {'val': r[1], 'custom': r[2], 'active': r[3]}) for r in old_values]
+        )
+        for k, v in old_values_dict.iteritems():
+            if k in new_values_dict:
+                old_values_dict[k]['val'] = new_values_dict[k]['val']
+            else:
+                old_values_dict[k] = new_values_dict[k]
+        updated_values = [[k, v['val'], v['custom'], v['active']] for k, v in old_values_dict.iteritems()]
+        return updated_values
 
 
 def convert_value(value):
