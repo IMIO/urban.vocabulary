@@ -30,12 +30,12 @@ class BaseVocabulary(object):
     _registry_interface = 'urban.vocabulary.interfaces.IVocabularies'
     _expire_delay = 86400  # in seconds
 
-    def __call__(self, context):
+    def __call__(self, context, all=False):
         vocabulary = self._get_base_vocabulary(context)
         if self.registry_key:
             vocabulary = utils.extend_vocabulary(
                 vocabulary,
-                self._get_registry_items(context),
+                self._get_registry_items(context, all=all),
             )
         return vocabulary
 
@@ -130,8 +130,8 @@ class BaseVocabulary(object):
 
 class BaseBooleanVocabulary(BaseVocabulary):
 
-    def __call__(self, context):
-        vocabulary = super(BaseBooleanVocabulary, self).__call__(context)
+    def __call__(self, context, all=False):
+        vocabulary = super(BaseBooleanVocabulary, self).__call__(context, all=all)
         return self._generate_vocabulary(vocabulary)
 
     def _generate_vocabulary(self, base_vocabulary):
