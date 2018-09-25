@@ -154,8 +154,8 @@ class TestUrbanWebservice(unittest.TestCase):
             ({'att': ['A,B']}, {}), ({'att': ['A,B']}, {}),
         ])
         cls._map_result = Mock(side_effect=[
-            [[u'token-1', u'Title 1'], [u'token-2', u'Title 2']],
-            [[u'token-3', u'Title 3'], [u'token-4', u'Title 4']],
+            [[u'token-1', u'Title 1', u'', u'1'], [u'token-2', u'Title 2', u'', u'1']],
+            [[u'token-3', u'Title 3', u'', u'1'], [u'token-4', u'Title 4', u'', u'1']],
         ])
         self.assertTrue(cls.store_values())
         data = api.portal.get_registry_record(self._rkey)

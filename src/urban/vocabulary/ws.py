@@ -139,7 +139,7 @@ class UrbanWebservice(object):
         return True
 
     def _update_values(self, old_values, new_values):
-        if not old_values:
+        if not old_values or old_values == [[]]:
             return new_values
         old_values_dict = dict(
             [(r[0], {'val': r[1], 'custom': r[2], 'active': r[3]}) for r in old_values]
