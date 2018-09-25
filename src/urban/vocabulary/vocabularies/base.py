@@ -96,7 +96,7 @@ class BaseVocabulary(object):
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
-        items = set([(t.id, t.title) for t in urban_values])
+        items = set([(t.id, t.title or t.Title()) for t in urban_values])
         return utils.vocabulary_from_items(items)
 
     def _refresh_registry(self):
