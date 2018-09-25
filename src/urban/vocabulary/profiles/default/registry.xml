@@ -57,8 +57,9 @@
     <value key="karstic_boolean_mapping"></value>
     <value key="karstic_boolean_mapping_value"></value>
     <value key="catchment_area_url">
-      <element>{}l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
-      <element>{}l=7&amp;att=OUVR_NOM,OUVR_CODE</element>
+      <element>{}l=42&amp;att=TYPE_DESC,TYPE_CODE</element>
+      <element>{}l=43&amp;att=TYPE_DESC,TYPE_CODE</element>
+      <element>{}l=44&amp;att=TYPE_DESC,TYPE_CODE</element>
     </value>
     <value key="catchment_area_boolean_mapping"></value>
     <value key="catchment_area_boolean_mapping_value"></value>
