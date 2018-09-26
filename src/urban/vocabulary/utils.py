@@ -26,10 +26,10 @@ def vocabulary_from_items(items):
 
 def extend_vocabulary(voc, items):
     """Add new terms to an existing vocabulary"""
-    for value, title in items:
+    for value, title, custom in items:
         if value in voc.by_token or value in voc.by_value:
             continue
-        term = SimpleVocabulary.createTerm(value, value, title)
+        term = SimpleVocabulary.createTerm(value, value, custom or title)
         voc._terms.append(term)
         voc.by_token[term.token] = term
         voc.by_value[term.value] = term

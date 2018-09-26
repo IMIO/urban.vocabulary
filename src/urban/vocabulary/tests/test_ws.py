@@ -137,7 +137,7 @@ class TestUrbanWebservice(unittest.TestCase):
         ]}}
         mapping = {'title': 'b', 'token': 'a'}
         self.assertListEqual(
-            [['token-1', 'Title 1', u'1'], ['token-2', 'Title 2', u'1']],
+            [['token-1', 'Title 1', u'', u'1'], ['token-2', 'Title 2', u'', u'1']],
             cls._map_result(json, mapping),
         )
 
@@ -154,8 +154,8 @@ class TestUrbanWebservice(unittest.TestCase):
             ({'att': ['A,B']}, {}), ({'att': ['A,B']}, {}),
         ])
         cls._map_result = Mock(side_effect=[
-            [[u'token-1', u'Title 1'], [u'token-2', u'Title 2']],
-            [[u'token-3', u'Title 3'], [u'token-4', u'Title 4']],
+            [[u'token-1', u'Title 1', u'', u'1'], [u'token-2', u'Title 2', u'', u'1']],
+            [[u'token-3', u'Title 3', u'', u'1'], [u'token-4', u'Title 4', u'', u'1']],
         ])
         self.assertTrue(cls.store_values())
         data = api.portal.get_registry_record(self._rkey)

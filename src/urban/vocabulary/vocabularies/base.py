@@ -30,12 +30,12 @@ class BaseVocabulary(object):
     _registry_interface = 'urban.vocabulary.interfaces.IVocabularies'
     _expire_delay = 86400  # in seconds
 
-    def __call__(self, context):
+    def __call__(self, context, all=False):
         vocabulary = self._get_base_vocabulary(context)
         if self.registry_key:
             vocabulary = utils.extend_vocabulary(
                 vocabulary,
-                self._get_registry_items(context),
+                self._get_registry_items(context, all=all),
             )
         return vocabulary
 
@@ -84,7 +84,7 @@ class BaseVocabulary(object):
                 pass
         return values
 
-    def _get_registry_items(self, context):
+    def _get_registry_items(self, context, all=False):
         key = '{0}.{1}_cached'.format(
             self._registry_interface,
             self.registry_key,
@@ -92,11 +92,11 @@ class BaseVocabulary(object):
         record = api.portal.get_registry_record(key, default=None)
         if record is not None:
             self._refresh_registry()
-        return [(e[0], e[1]) for e in record and record or [] if e]
+        return [(e[0], e[1], e[2]) for e in record and record or [] if e and (all or int(e[3]))]
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
-        items = set([(t.id, t.title) for t in urban_values])
+        items = set([(t.id, t.title or t.Title()) for t in urban_values])
         return utils.vocabulary_from_items(items)
 
     def _refresh_registry(self):
@@ -130,8 +130,8 @@ class BaseVocabulary(object):
 
 class BaseBooleanVocabulary(BaseVocabulary):
 
-    def __call__(self, context):
-        vocabulary = super(BaseBooleanVocabulary, self).__call__(context)
+    def __call__(self, context, all=False):
+        vocabulary = super(BaseBooleanVocabulary, self).__call__(context, all=all)
         return self._generate_vocabulary(vocabulary)
 
     def _generate_vocabulary(self, base_vocabulary):
