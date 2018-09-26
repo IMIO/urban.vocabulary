@@ -60,6 +60,7 @@
       <element>{}l=42&amp;att=TYPE_DESC,TYPE_CODE</element>
       <element>{}l=43&amp;att=TYPE_DESC,TYPE_CODE</element>
       <element>{}l=44&amp;att=TYPE_DESC,TYPE_CODE</element>
+      <element>{}l=46&amp;att=TYPE_DESC,TYPE_CODE</element>
     </value>
     <value key="catchment_area_boolean_mapping"></value>
     <value key="catchment_area_boolean_mapping_value"></value>
