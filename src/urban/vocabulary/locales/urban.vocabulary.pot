@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-11 09:50+0000\n"
+"POT-Creation-Date: 2018-10-29 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,10 @@ msgstr ""
 
 #: ../interfaces.py:555
 msgid "City polygon"
+msgstr ""
+
+#: ../browser/controlpanel.py:71
+msgid "Clear vocabularies"
 msgstr ""
 
 #: ../interfaces.py:549
@@ -145,7 +149,7 @@ msgstr ""
 msgid "URL(s)"
 msgstr ""
 
-#: ../browser/controlpanel.py:38
+#: ../browser/controlpanel.py:39
 msgid "Update vocabularies"
 msgstr ""
 
@@ -153,7 +157,7 @@ msgstr ""
 msgid "Urban Vocabulary"
 msgstr ""
 
-#: ../browser/controlpanel.py:23
+#: ../browser/controlpanel.py:24
 msgid "Urban Vocabulary Settings"
 msgstr ""
 
@@ -177,7 +181,11 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: ../browser/controlpanel.py:52
+#: ../browser/controlpanel.py:88
+msgid "Vocabularies cleared"
+msgstr ""
+
+#: ../browser/controlpanel.py:53
 msgid "Vocabularies updated : {0}"
 msgstr ""
 

@@ -8,6 +8,7 @@ Created by mpeeters
 """
 
 from Products.statusmessages.interfaces import IStatusMessage
+from plone import api
 from plone.app.registry.browser import controlpanel
 from plone.app.registry.browser.controlpanel import _ as PMF
 from z3c.form import button
@@ -66,6 +67,29 @@ class SettingsEditForm(controlpanel.RegistryEditForm):
         self.request.response.redirect("%s/%s" % (
             self.context.absolute_url(),
             self.control_panel_view))
+
+    @button.buttonAndHandler(_(u'Clear vocabularies'))
+    def handleClear(self, action):
+        data, errors = self.extractData()
+        messages = IStatusMessage(self.request)
+
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            messages.addStatusMessage(self.status, type="error")
+            return
+        for key in data.keys():
+            if key.endswith('_boolean_mapping'):
+                registry_key = 'urban.vocabulary.interfaces.IVocabularies.{}'.format(
+                    key.replace('_boolean_mapping', '_cached')
+                )
+                api.portal.set_registry_record(registry_key, [])
+        message = translate(
+            _(u'Vocabularies cleared'),
+            context=self.request,
+        )
+        messages.addStatusMessage(message, 'info')
+        self.request.response.redirect(self.request.getURL())
 
 
 class SettingsView(controlpanel.ControlPanelFormWrapper):
