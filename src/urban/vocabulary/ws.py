@@ -7,6 +7,7 @@ Created by mpeeters
 :license: GPL, see LICENCE.txt for more details.
 """
 
+from ConfigParser import ConfigParser
 from plone import api
 from plone.memoize import ram
 from time import time
@@ -16,6 +17,7 @@ from urlparse import urlparse
 from urlparse import parse_qs
 
 import logging
+import os
 import requests
 
 from urban.vocabulary import utils
@@ -23,9 +25,36 @@ from urban.vocabulary import utils
 
 logger = logging.getLogger('urban.vocabulary')
 
+URBAN_CFG_DIR = '{}/../../var/urban'.format(os.environ['INSTANCE_HOME'])
+
 
 def _call_ws_cachekey(method, self, force=0):
     return (getattr(self, 'ws_url'), force, time() // (60 * 5))
+
+
+class ExternalConfig(object):
+    """
+    """
+    def __init__(self, config_name):
+        self.parser = None
+        self.sections = {}
+        parser = ConfigParser()
+        parser.read('{}/{}.cfg'.format(URBAN_CFG_DIR, config_name))
+        self.parser = parser
+        for section in parser.sections():
+            self.sections[section] = dict(self.parser.items(section))
+
+    def __getattr__(self, attr_name):
+        return self.section(attr_name)
+
+    def section(self, section_name):
+        return self.sections.get(section_name, {})
+
+
+coring_cfg = ExternalConfig('parcel_coring')
+coring_polygon = ExternalConfig('coring_polygon')
+WS_BASE_URL = coring_cfg.parcel_coring.get('url', '')
+POLYGON = coring_polygon.coring_polygon.get('wkt', '')
 
 
 class UrbanWebservice(object):
@@ -43,12 +72,11 @@ class UrbanWebservice(object):
 
     @property
     def polygon(self):
-        key = 'urban.vocabulary.interfaces.ISettings.polygon'
-        return api.portal.get_registry_record(key, default=None)
+        return POLYGON
 
     @property
     def ws_url(self):
-        base_url = api.portal.get_registry_record('urban.vocabulary.interfaces.ISettings.base_url', default='')
+        base_url = WS_BASE_URL
         url = self.get_registry_value('url', default=[])
 
         if not url:
