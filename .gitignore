@@ -16,7 +16,10 @@ local/
 parts/
 src/*
 test.plone_addon/
-var/
+var/blobstorage/
+var/filestorage/
+var/instance/
+var/log/
 # files
 .installed.cfg
 .mr.developer.cfg

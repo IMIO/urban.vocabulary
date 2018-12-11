@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="urban.vocabulary.interfaces.ISettings" purge="False">
-    <value key="base_url">https://geonode-staging.imio.be/survey/survey_value_list?</value>
-    <value key="polygon"></value>
     <value key="pca_url">{}l=7&amp;att=LIBELLE,CODECARTO</value>
     <value key="pca_boolean_mapping"></value>
     <value key="pca_boolean_mapping_value"></value>

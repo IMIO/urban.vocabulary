@@ -25,7 +25,7 @@ from urban.vocabulary import utils
 
 logger = logging.getLogger('urban.vocabulary')
 
-URBAN_CFG_DIR = '{}/../../var/urban'.format(os.environ['INSTANCE_HOME'])
+URBAN_CFG_DIR = '{}/../../var/urban'.format(os.getcwd())
 
 
 def _call_ws_cachekey(method, self, force=0):

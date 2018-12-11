@@ -54,13 +54,13 @@ class TestUrbanWebservice(unittest.TestCase):
         cls = self._cls
         cls.get_registry_value = Mock(return_value='{}a')
         self.assertListEqual(
-            ['https://geonode-staging.imio.be/survey/survey_value_list?a'],
+            ['https://xxx-geonode.imio-app.be/survey/survey_value_list?a'],
             cls.ws_url
         )
         cls.get_registry_value = Mock(return_value=['{}a', 'b'])
         self.assertListEqual(
             [
-                'https://geonode-staging.imio.be/survey/survey_value_list?a',
+                'https://xxx-geonode.imio-app.be/survey/survey_value_list?a',
                 'b'
             ],
             cls.ws_url
@@ -106,8 +106,8 @@ class TestUrbanWebservice(unittest.TestCase):
             self._request_result(200, {'success': True, 'b': 2}),
         ])
         self.assertListEqual(
-            [({'p': ['1']}, {'success': True, 'a': 1}),
-             ({'p': ['2']}, {'success': True, 'b': 2})],
+            [({'area': 'Polygon ((x, y, z))', 'p': ['1']}, {'success': True, 'a': 1}),
+             ({'area': 'Polygon ((x, y, z))', 'p': ['2']}, {'success': True, 'b': 2})],
             cls._call_ws(force=0),
         )
 
@@ -118,8 +118,8 @@ class TestUrbanWebservice(unittest.TestCase):
         cls.get_registry_value = Mock(return_value=urls)
         requests.post = Mock(return_value=self._request_result(200))
         result = [
-            ({'p': ['1']}, {'success': True}),
-            ({'p': ['2']}, {'success': True}),
+            ({'area': 'Polygon ((x, y, z))', 'p': ['1']}, {'success': True}),
+            ({'area': 'Polygon ((x, y, z))', 'p': ['2']}, {'success': True}),
         ]
         self.assertListEqual(result, cls._call_ws(force=0))
         requests.post = Mock(return_value=self._request_result(500))
