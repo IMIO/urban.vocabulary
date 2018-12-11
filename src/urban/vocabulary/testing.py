@@ -8,7 +8,9 @@ from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 from mock import Mock
 from Products.urban import UrbanVocabularyTerm
+from urban.vocabulary import ws
 
+import os
 import urban.vocabulary
 
 
@@ -25,6 +27,11 @@ class UrbanVocabularyLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'urban.vocabulary:testing')
+        ws.URBAN_CFG_DIR = '{}/../../var/urban'.format(os.getcwd())
+        coring_cfg = ws.ExternalConfig('parcel_coring')
+        coring_polygon = ws.ExternalConfig('coring_polygon')
+        ws.WS_BASE_URL = coring_cfg.parcel_coring.get('url', '')
+        ws.POLYGON = coring_polygon.coring_polygon.get('wkt', '')
 
 
 URBAN_VOCABULARY_FIXTURE = UrbanVocabularyLayer()
