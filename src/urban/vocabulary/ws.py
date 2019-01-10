@@ -78,7 +78,7 @@ class UrbanWebservice(object):
     def ws_url(self):
         base_url = WS_BASE_URL
         base_query = api.portal.get_registry_record(
-            'urban.vocabulary.interfaces.ISettings.base_query', default=''
+            'urban.vocabulary.interfaces.ISettings.base_query', default='{}'
         )
         url = self.get_registry_value('url', default=[])
 
