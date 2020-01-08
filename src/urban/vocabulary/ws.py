@@ -113,7 +113,11 @@ class UrbanWebservice(object):
         result = []
         for url in self.ws_url:
             url, data = self._request_query(url)
-            r = requests.post(url, data=data)
+            try:
+                r = requests.post(url, data=data)
+            except requests.exceptions.MissingSchema:
+                # ignore invalid urls
+                return
             if r.status_code != 200:
                 return
             json = r.json()
