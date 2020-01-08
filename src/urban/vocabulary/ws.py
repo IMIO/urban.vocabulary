@@ -77,16 +77,19 @@ class UrbanWebservice(object):
     @property
     def ws_url(self):
         base_url = WS_BASE_URL
+        base_query = api.portal.get_registry_record(
+            'urban.vocabulary.interfaces.ISettings.base_query', default='{}'
+        )
         url = self.get_registry_value('url', default=[])
 
         if not url:
             return url
 
         if isinstance(url, basestring):
-            full_url = url.format(base_url)
+            full_url = url.format(base_query.format(base_url))
             return [full_url]
 
-        full_url = [url_.format(base_url) for url_ in url]
+        full_url = [url_.format(base_query.format(base_url)) for url_ in url]
         return full_url
 
     @property
