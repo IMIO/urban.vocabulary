@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="urban.vocabulary.interfaces.ISettings" purge="False">
+    <value key="enable">True</value>
     <value key="base_query">{}survey_value_list?</value>
     <value key="pca_url">{}l=7&amp;att=LIBELLE,CODECARTO</value>
     <value key="pca_boolean_mapping"></value>
