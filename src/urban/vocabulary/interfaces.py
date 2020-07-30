@@ -545,7 +545,7 @@ class ISettings(IPCASettings,
                 ICatchmentAreaSettings):
     """ """
 
-    enable = schema.Boolean(
+    enable = schema.Bool(
         title=_(u'Enable Coring service'),
         required=True,
     )
