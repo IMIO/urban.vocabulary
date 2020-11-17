@@ -111,6 +111,9 @@ class UrbanWebservice(object):
     @ram.cache(_call_ws_cachekey)
     def _call_ws(self, force=0):
         """Call and return the response from the webservice"""
+        # disable ws call for now in urban see
+        # https://support.imio.be/browse/URB-2108
+        return
         if not self.ws_url:
             return
         result = []
