@@ -545,6 +545,11 @@ class ISettings(IPCASettings,
                 ICatchmentAreaSettings):
     """ """
 
+    enable = schema.Bool(
+        title=_(u'Enable Coring service'),
+        required=True,
+    )
+
     base_query = schema.TextLine(
         title=_(u'Coring service base query'),
         required=True,

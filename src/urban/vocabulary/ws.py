@@ -108,12 +108,18 @@ class UrbanWebservice(object):
             params['area'] = self.polygon
         return parser._replace(query=None).geturl(), params
 
+    @property
+    def enabled(self):
+        enabled = api.portal.get_registry_record(
+            'urban.vocabulary.interfaces.ISettings.enable', default=False
+        )
+        return enabled
+
     @ram.cache(_call_ws_cachekey)
     def _call_ws(self, force=0):
         """Call and return the response from the webservice"""
-        # disable ws call for now in urban see
-        # https://support.imio.be/browse/URB-2108
-        return
+        if not self.enabled:
+            return
         if not self.ws_url:
             return
         result = []
