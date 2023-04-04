@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a2 (unreleased)
+1.0a2 (2023-04-04)
 ------------------
 
 - Avoid an error during install when `portal_urban` does not exist yet
