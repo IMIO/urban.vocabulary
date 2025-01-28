@@ -22,6 +22,10 @@ from urban.vocabulary import ws
 from urban.vocabulary.interfaces import ISettings
 
 
+def print_vocabulary(vocabulary,msg):
+    for term in vocabulary._terms:
+        print(term.title,msg)
+    
 class BaseVocabulary(object):
     config_vocabulary_path = None
     config_vocabulary_options = {}
@@ -29,18 +33,24 @@ class BaseVocabulary(object):
     registry_key = None
     _registry_interface = 'urban.vocabulary.interfaces.IVocabularies'
     _expire_delay = 86400  # in seconds
-
+    
+   
+        
     def __call__(self, context, all=False):
         vocabulary = self._get_base_vocabulary(context)
+        #print(self.config_vocabulary_path)
+        #print_vocabulary(vocabulary,"-----------********41")
         if self.registry_key:
             vocabulary = utils.extend_vocabulary(
                 vocabulary,
                 self._get_registry_items(context, all=all),
             )
+        #print_vocabulary(vocabulary,"-----------********47")
         return vocabulary
 
     def _get_base_vocabulary(self, context):
         urban_vocabulary_values = self._get_config_vocabulary_values(context)
+        
         return self._vocabulary_from_urban_vocabulary(
             urban_vocabulary_values,
             context,
@@ -74,7 +84,6 @@ class BaseVocabulary(object):
                 cls.config_vocabulary_path,
                 **cls.config_vocabulary_options
             ))
-
         for voc in vocabularies:
             try:
                 values.extend(voc.getAllVocTerms(context).values())
@@ -96,7 +105,12 @@ class BaseVocabulary(object):
 
     def _vocabulary_from_urban_vocabulary(self, urban_values, context):
         """Convert an urban vocabulary to a zope.schema vocabulary"""
-        items = set([(t.id, t.title or t.Title()) for t in urban_values])
+        items =[]
+        for t in urban_values:
+            element = (t.id, t.title or t.Title())
+            if element not in items:
+                items.append(element)
+        
         return utils.vocabulary_from_items(items)
 
     def _refresh_registry(self):
