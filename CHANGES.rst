@@ -1,3 +1,13 @@
+1.0a3 (2025-02-07)
+------------------
+
+Bug fixes:
+
+
+- Fix urban vocabularies following configuration order
+  [WBoudabous] (SUP-41929)
+
+
 Changelog
 =========
 
