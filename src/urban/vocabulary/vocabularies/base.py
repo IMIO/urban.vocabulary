@@ -22,9 +22,6 @@ from urban.vocabulary import ws
 from urban.vocabulary.interfaces import ISettings
 
 
-def print_vocabulary(vocabulary,msg):
-    for term in vocabulary._terms:
-        print(term.title,msg)
     
 class BaseVocabulary(object):
     config_vocabulary_path = None
@@ -38,14 +35,11 @@ class BaseVocabulary(object):
         
     def __call__(self, context, all=False):
         vocabulary = self._get_base_vocabulary(context)
-        #print(self.config_vocabulary_path)
-        #print_vocabulary(vocabulary,"-----------********41")
         if self.registry_key:
             vocabulary = utils.extend_vocabulary(
                 vocabulary,
                 self._get_registry_items(context, all=all),
             )
-        #print_vocabulary(vocabulary,"-----------********47")
         return vocabulary
 
     def _get_base_vocabulary(self, context):
